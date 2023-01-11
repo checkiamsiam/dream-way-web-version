@@ -11,7 +11,10 @@
   "dependencies": {
     "@next/font": "13.1.1",
     "@reduxjs/toolkit": "^1.9.1",
+<<<<<<< HEAD
     "bootstrap": "^5.2.3",
+=======
+>>>>>>> 0a39dbfc3416a78f89342271b44319d3b8e5c914
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
     "next": "13.1.1",
