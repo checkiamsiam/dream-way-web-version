@@ -891,7 +891,6 @@
 	}
 	.home_iconbox_container {
 		margin-bottom: 90px;
-		margin-top: -200px;
 	}
 }
 @media only screen and (max-width: 992px) {
@@ -977,6 +976,7 @@
 	}
 
 	.home_iconbox_container {
+		top: 50%;
 		margin-bottom: 120px;
 	}
 	.header_top.home2,

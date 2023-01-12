@@ -4,6 +4,7 @@ import { store } from "../features/store";
 import ScrollToTop from "../components/common/ScrollTop";
 import Seo from "../components/common/seo";
 import Header from "../components/common/Header";
+import MobileMenu from "../components/common/header/MobileMenu";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
@@ -15,6 +16,7 @@ function App({ Component, pageProps }) {
       <Seo font={"https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"} />
       <Provider store={store}>
         <Header />
+        <MobileMenu/>
         <Component {...pageProps} />
       </Provider>
 
