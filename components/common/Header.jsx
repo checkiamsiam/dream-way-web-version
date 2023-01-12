@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import HeaderMenuContent from "./header/HeaderMenuContent";
 
 const Header = () => {
+  const route = useRouter();
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
@@ -18,14 +20,18 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`header-nav menu_style_home_one  navbar-scrolltofixed stricky main-menu  ${navbar ? "stricky-fixed " : ""}`}>
+    <header
+      className={`header-nav menu_style_home_one  navbar-scrolltofixed stricky main-menu  ${
+        navbar || route.pathname === "/404" || route.pathname === "/login" || route.pathname === "/register" ? "stricky-fixed " : ""
+      }`}
+    >
       <div className="container-fluid p0">
         {/* <!-- Ace Responsive Menu --> */}
 
         <Link href="/" className="navbar_brand float-start dn-smd">
           <img className="logo1 img-fluid" src="/assets/images/header-logo.png" alt="header-logo.png" />
           <img className="logo2 img-fluid" src="/assets/images/header-logo2.png" alt="header-logo2.png" />
-          <span>FindHouse</span>
+          <span>Dream Way</span>
         </Link>
         {/* site logo brand */}
 

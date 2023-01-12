@@ -10,7 +10,7 @@
 @import "../public/assets/scss/components/custom_theme.scss";
 @import "../public/assets/scss/components/dashboard.scss";
 @import "../public/assets/scss/responsive.css";
-// @import "node_modules/react-modal-video/scss/modal-video.scss";
+@import "node_modules/react-modal-video/scss/modal-video.scss";
 
 .parent-menu-active > .pro-inner-item > .pro-item-content {
   color: var(--color-primary) !important;

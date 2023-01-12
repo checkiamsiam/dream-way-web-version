@@ -4048,7 +4048,8 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 
 .home3_home_content {
   padding: 160px 0;
-  position: relative;
+  position: relatave;
+  
 }
 @media (max-width: 1199px) {
   .home3_home_content {
@@ -8767,12 +8768,13 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .inner_page_breadcrumb {
   background-image: url(../images/background/inner-pagebg.jpg);
   background-repeat: no-repeat;
+  margin-top: 85px;
   height: 370px;
-  margin-top: 88px;
   position: relative;
 }
 @media (max-width: 576px) {
   .inner_page_breadcrumb {
+    margin-top: 85px;
     height: 350px;
   }
 }
@@ -8850,14 +8852,14 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   font-size: 16px;
   font-weight: bold;
   line-height: 1.5;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
 }
 
 .about_content p {
   font-size: 14px;
   color: #484848;
   line-height: 1.714;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 ul.ab_counting li {
