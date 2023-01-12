@@ -1,4 +1,5 @@
 import Seo from "../components/common/seo";
+import AboutUs from "../components/Home/AboutUs";
 import CallToAction from "../components/Home/CallToAction";
 import GetInTouch from "../components/Home/GetInTouch";
 import HomeSlider from "../components/Home/HomeSlider";
@@ -10,6 +11,7 @@ export default function Home() {
     <>
       <Seo pageTitle="Home" />
       <HomeSlider />
+      <AboutUs />
       <WhyUs />
       <GetInTouch />
       <OurPartners />

@@ -32,7 +32,7 @@ function HomeSlider() {
             <div className="col-lg-12">
               <div className="home_content home4">
                 <div className="home-text text-center">
-                  <h2 className="fz55">Find Your Dream Way</h2>
+                  <h2 className="fz55">Find Your Dream Home</h2>
                   <p className="fz18 color-white">Leading Real Estate Company in Bangladesh.</p>
                 </div>
               </div>

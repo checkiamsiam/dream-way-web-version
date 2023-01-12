@@ -6,7 +6,7 @@ const PopupVideo = ({videoId}) => {
   return (
     <>
       <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={videoId} onClose={() => setOpen(false)} />
-      <div className="popup_video_btn popup-iframe popup-youtube color-white" onClick={() => setOpen(true)} role="button">
+      <div className="popup_video_btn popup-iframe popup-youtube color-white z-1" onClick={() => setOpen(true)} role="button">
         <i className="flaticon-play"></i>
       </div>
     </>

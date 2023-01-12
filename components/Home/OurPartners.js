@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function OurPartners() {
   const partnersImages = ["1", "2", "3", "4", "5"];
   return (
@@ -15,7 +17,7 @@ function OurPartners() {
           {partnersImages.map((val, i) => (
             <div className="col-sm-6 col-md-4 col-lg" key={i}>
               <div className="our_partner">
-                <img className="img-fluid" src={`assets/images/partners/${val}.png`} alt="1.png" />
+                <Image className="img-fluid" width={110} height={110} src={`/assets/images/partners/${val}.png`} alt="1.png" />
               </div>
             </div>
           ))}

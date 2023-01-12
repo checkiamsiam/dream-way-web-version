@@ -37,7 +37,7 @@ function WhyUs() {
 
           <div className="col-lg-4 col-xl-5">
             <div className="about_thumb">
-              <Image className="img-fluid w100" src={thump} alt="yt-thump" />
+              <Image className="img-fluid h500 w100" src={thump} alt="yt-thump" />
               <PopupVideo videoId="Eq8sPOuaENM" />
             </div>
           </div>
