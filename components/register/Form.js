@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import { useRegisterMutation } from "../../features/user/userApi";
 
 const Form = () => {
-  const [register, { isLoading, isSuccess , error}] = useRegisterMutation();
+  const router = useRouter();
+  const [register, { isSuccess }] = useRegisterMutation();
   const ref = useRef();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,11 +19,9 @@ const Form = () => {
       dob: ref.current.dob?.value,
     };
     await register(data);
+    isSuccess && router.push("/email-verification");
   };
 
-  if(isLoading){
-    console.log("loading" , error );
-  }
   return (
     <section className="our-log bgc-fa">
       <div className="container">

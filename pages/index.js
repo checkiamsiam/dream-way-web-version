@@ -5,12 +5,13 @@ import GetInTouch from '../components/Home/GetInTouch';
 import HomeSlider from '../components/Home/HomeSlider';
 import OurPartners from '../components/Home/OurPartners';
 import WhyUs from '../components/Home/WhyUs';
+import axiosApi from '../features/axiosInstance';
 
-export default function Home() {
+export default function Home({ data }) {
     return (
         <>
             <Seo pageTitle="Home" />
-            <HomeSlider />
+            <HomeSlider sliderData={data.sliders} />
             <AboutUs />
             <WhyUs />
             <GetInTouch />
@@ -20,20 +21,12 @@ export default function Home() {
     );
 }
 
-// use server side rendering if user is logged in pass user data to the client
+export async function getServerSideProps() {
+    const { data } = await axiosApi.get('/api/home/home');
 
-// export async function getServerSideProps(context) {
-//     const session = await getSession(context);
-
-//     if (session) {
-//         return {
-//             props: {
-//                 user: session.user,
-//             },
-//         };
-//     }
-
-//     return {
-//         props: {},
-//     };
-// }
+    return {
+        props: {
+            data: data,
+        },
+    };
+}

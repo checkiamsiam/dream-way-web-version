@@ -1,16 +1,14 @@
-import axios from "axios";
 import Seo from "../../components/common/seo";
 import BreadCrumbBanner from "../../components/flats/BreadCrumbBanner";
 import FeaturedFlats from "../../components/flats/FeaturedFlats";
 import axiosApi from "../../features/axiosInstance";
 
-function Flats({ lands }) {
-  console.log(lands);
+function Flats({ flats }) {
   return (
     <>
       <Seo pageTitle="Flats" />
       <BreadCrumbBanner />
-      <FeaturedFlats lands={lands.response} />
+      <FeaturedFlats flats={flats.response} />
     </>
   );
 }
@@ -22,7 +20,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      lands: data,
+      flats: data,
     },
   };
 }
