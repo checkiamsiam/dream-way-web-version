@@ -8,6 +8,7 @@ const Header = () => {
   const route = useRouter();
   const [navbar, setNavbar] = useState(false);
 
+
   const changeBackground = () => {
     if (window.scrollY >= 95) {
       setNavbar(true);
