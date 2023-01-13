@@ -49,6 +49,11 @@ const HeaderMenuContent = ({ float = "" }) => {
           <span className="title">My Property</span>
         </Link>
       </li>
+      <li>
+        <Link href="/wishlist" className={router.pathname === "/wishlist" ? "ui-active" : undefined}>
+          <span className="title">Wishlist</span>
+        </Link>
+      </li>
 
       <li className="last">
         <Link href="/contact" className={router.pathname === "/contact" ? "ui-active" : undefined}>
@@ -57,7 +62,7 @@ const HeaderMenuContent = ({ float = "" }) => {
       </li>
       <li className="last">
         <Link href="/login" className={router.pathname === "/login" ? "ui-active" : undefined}>
-        <span className="flaticon-user"></span> Login/Register
+          <span className="flaticon-user"></span> Login/Register
         </Link>
       </li>
     </ul>
