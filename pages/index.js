@@ -1,6 +1,6 @@
+import CallToAction from "../components/common/CallToAction";
 import Seo from "../components/common/seo";
 import AboutUs from "../components/Home/AboutUs";
-import CallToAction from "../components/Home/CallToAction";
 import GetInTouch from "../components/Home/GetInTouch";
 import HomeSlider from "../components/Home/HomeSlider";
 import OurPartners from "../components/Home/OurPartners";
