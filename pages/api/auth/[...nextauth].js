@@ -37,8 +37,8 @@ export const authOptions = {
 
                     return Promise.resolve(response);
                 }
-                // Return null if user data could not be retrieved
-                return null;
+
+                throw new Error(user?.message || 'Something went wrong');
             },
         }),
     ],

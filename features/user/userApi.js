@@ -1,26 +1,43 @@
-import { api } from "../api/api";
-import { setEmailForRegisterVerification } from "./userSlice";
+import { toast } from 'react-toastify';
+import { api } from '../api/api';
 
 export const userApi = api.injectEndpoints({
-  endpoints: (builder) => ({
-    register: builder.mutation({
-      query: (credentials) => ({
-        url: "/api/user/signup",
-        method: "POST",
-        body: credentials,
-      }),
-      async onQueryStarted({ email }, { dispatch }) {
-        dispatch(setEmailForRegisterVerification(email));
-      },
+    endpoints: (builder) => ({
+        register: builder.mutation({
+            query: (credentials) => ({
+                url: '/api/user/signup',
+                method: 'POST',
+                body: credentials,
+            }),
+            async onQueryStarted(query, { queryFulfilled, dispatch }) {
+                try {
+                    const result = await queryFulfilled;
+                    console.log(result);
+
+                    toast.success(result.msg, {
+                        position: 'top-center',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'light',
+                    });
+                } catch (error) {
+                    console.log(error);
+                    alert(error.message);
+                }
+            },
+        }),
+        login: builder.mutation({
+            query: (credentials) => ({
+                url: '/api/user/signin',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
     }),
-    login: builder.mutation({
-      query: (credentials) => ({
-        url: "/api/user/signin",
-        method: "POST",
-        body: credentials,
-      }),
-    }),
-  }),
 });
 
 export const { useRegisterMutation, useLoginMutation } = userApi;

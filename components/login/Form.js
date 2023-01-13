@@ -1,12 +1,18 @@
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Form = () => {
     const router = useRouter();
+    const notify = () => toast.success('Login Success');
+
+    const [loading, setLoading] = useState(false);
 
     const handelSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true);
 
         const res = await signIn('credentials', {
             redirect: false,
@@ -14,15 +20,24 @@ const Form = () => {
             password: event.target.password.value,
         });
 
-        // console.log('res', res);
+        setLoading(false);
 
         if (res.ok) {
-            alert('Login Success');
-            // router.push('/');
+            notify();
+            router.push('/');
         }
 
         if (res.status === 401) {
-            alert(res.error);
+            toast.error(res.error, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
         }
     };
 
@@ -102,6 +117,7 @@ const Form = () => {
                                 <button
                                     type="submit"
                                     className="btn btn-log w-100 btn-thm"
+                                    disabled={loading}
                                 >
                                     Log In
                                 </button>
