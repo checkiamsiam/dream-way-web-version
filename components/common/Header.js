@@ -1,4 +1,3 @@
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,7 +7,6 @@ import HeaderMenuContent from './header/HeaderMenuContent';
 const Header = () => {
     const route = useRouter();
     const [navbar, setNavbar] = useState(false);
-    const { data: session, status } = useSession();
 
     const changeBackground = () => {
         if (window.scrollY >= 95) {

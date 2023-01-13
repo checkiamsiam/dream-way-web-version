@@ -1294,6 +1294,7 @@ header.header-nav.menu_style_home_one.stricky-fixed a.navbar_brand:before {
 header.header-nav.menu_style_home_one.stricky-fixed .ace-responsive-menu > li > a.active span,
 header.header-nav.menu_style_home_one.stricky-fixed .ace-responsive-menu li a.active span,
 header.header-nav.menu_style_home_one.stricky-fixed .ace-responsive-menu li a,
+header.header-nav.menu_style_home_one.stricky-fixed .ace-responsive-menu li button,
 header.header-nav.menu_style_home_one.stricky-fixed a.navbar_brand span,
 header.header-nav.menu_style_home_one.stricky-fixed .sign_up_btn .btn,
 header.header-nav.menu_style_home_one.stricky-fixed #search-button i {
@@ -1305,7 +1306,7 @@ header.header-nav.menu_style_home_one.dashbord_pages.stricky-fixed li a {
   color: #ffffff;
 }
 
-header.header-nav.menu_style_home_one .ace-responsive-menu li a {
+header.header-nav.menu_style_home_one .ace-responsive-menu li a ,header.header-nav.menu_style_home_one .ace-responsive-menu li button{
   color: #ffffff;
 }
 
