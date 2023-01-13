@@ -21,49 +21,24 @@ const HeaderMenuContent = ({ float = '' }) => {
         >
             <li>
                 <Link
-                    href="/"
+                    href="/Lands"
                     className={
-                        router.pathname === '/' ? 'ui-active' : undefined
+                        router.pathname === '/lands' ? 'ui-active' : undefined
                     }
                 >
-                    <span className="title">Home</span>
+                    <span className="title">Lands</span>
                 </Link>
             </li>
 
-            <li className="dropitem">
-                <a
-                    href="#"
+            <li>
+                <Link
+                    href="/flats"
                     className={
-                        properties.some(
-                            (page) =>
-                                page.routerPath === router.pathname ||
-                                page.routerPath + '/[id]' === router.pathname
-                        )
-                            ? 'ui-active'
-                            : undefined
+                        router.pathname === '/flats' ? 'ui-active' : undefined
                     }
                 >
-                    <span className="title">Properties</span>
-                    <span className="arrow"></span>
-                </a>
-                <ul className="sub-menu ">
-                    {properties.map((item) => (
-                        <li key={item.id}>
-                            <Link
-                                href={item.routerPath}
-                                className={
-                                    router.pathname === item.routerPath ||
-                                    item.routerPath + '/[id]' ===
-                                        router.pathname
-                                        ? 'ui-active'
-                                        : undefined
-                                }
-                            >
-                                {item.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                    <span className="title">Flats</span>
+                </Link>
             </li>
 
             <li>
@@ -79,30 +54,34 @@ const HeaderMenuContent = ({ float = '' }) => {
                 </Link>
             </li>
 
-            <li>
-                <Link
-                    href="/my-property"
-                    className={
-                        router.pathname === '/my-property'
-                            ? 'ui-active'
-                            : undefined
-                    }
-                >
-                    <span className="title">My Property</span>
-                </Link>
-            </li>
-            <li>
-                <Link
-                    href="/wishlist"
-                    className={
-                        router.pathname === '/wishlist'
-                            ? 'ui-active'
-                            : undefined
-                    }
-                >
-                    <span className="title">Wishlist</span>
-                </Link>
-            </li>
+            {status === 'authenticated' && (
+                <>
+                    <li>
+                        <Link
+                            href="/my-property"
+                            className={
+                                router.pathname === '/my-property'
+                                    ? 'ui-active'
+                                    : undefined
+                            }
+                        >
+                            <span className="title">My Property</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            href="/wishlist"
+                            className={
+                                router.pathname === '/wishlist'
+                                    ? 'ui-active'
+                                    : undefined
+                            }
+                        >
+                            <span className="title">Wishlist</span>
+                        </Link>
+                    </li>
+                </>
+            )}
 
             <li className="last">
                 <Link
@@ -114,6 +93,7 @@ const HeaderMenuContent = ({ float = '' }) => {
                     Contact
                 </Link>
             </li>
+
             <li className="last">
                 {status === 'authenticated' ? (
                     <button onClick={() => signOut()}>

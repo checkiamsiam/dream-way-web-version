@@ -2,10 +2,6 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions = {
-    session: {
-        strategy: 'jwt',
-    },
-
     providers: [
         CredentialsProvider({
             name: 'Credentials',
@@ -32,10 +28,12 @@ export const authOptions = {
                 if (res.ok && user) {
                     const response = {
                         ...user.user,
-                        image: user.token,
+                        token: user.token,
                     };
 
-                    return Promise.resolve(response);
+                    return {
+                        token: response,
+                    };
                 }
 
                 throw new Error(user?.message || 'Something went wrong');
@@ -45,10 +43,13 @@ export const authOptions = {
 
     // our response from the server send user and token
     callbacks: {
-        // set uer to session
-        session: async (session, user) => {
-            session.user = user;
-            return Promise.resolve(session);
+        jwt: async ({ token, user }) => {
+            user && (token.user = user);
+            return token;
+        },
+        session: async ({ session, token }) => {
+            session.user = token.user; // Setting token in session
+            return session;
         },
     },
 };

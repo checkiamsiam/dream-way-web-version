@@ -88,7 +88,7 @@ export async function getServerSideProps(context) {
         };
     }
 
-    const token = session?.session?.user?.image;
+    const token = session?.user?.token?.token;
 
     // wait for all requests to complete
     const [myProperty, myRequests] = await Promise.all([
