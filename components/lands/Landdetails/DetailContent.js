@@ -1,7 +1,7 @@
 import PropertyDescriptions from "../../common/PropertyDescriptions";
 import PropertyDetails from "../../common/PropertyDetails";
 
-function DetailContent() {
+function DetailContent({land}) {
   return (
     <div className="container mt50 mb50">
       <div className="listing_single_description ">
@@ -23,7 +23,7 @@ function DetailContent() {
           <div className="col-lg-12">
             <h4 className="mb15">Property Details</h4>
           </div>
-          <PropertyDetails />
+          <PropertyDetails propertyDetail={land}/>
         </div>
       </div>
     </div>
