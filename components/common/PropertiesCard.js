@@ -8,7 +8,7 @@ const PropertiesCard = () => {
           <div className="thumb">
             <img className="img-whp" src="/assets/images/property/fp1.jpg" alt="fp1.jpg" />
             <div className="thmb_cntnt">
-              <Link href={`/listing-details-v1/`} className="fp_price">
+              <Link href={`/flats/${"randsdfdsf"}`} className="fp_price">
                 $1000000
               </Link>
             </div>
@@ -17,7 +17,7 @@ const PropertiesCard = () => {
             <div className="tc_content">
               <p className="text-thm">Flat</p>
               <h4>
-                <Link href={`/listing-details-v1/`}>Renovated apartment</Link>
+                <Link href={`/flats/${"randsdfdsf"}`}>Renovated apartment</Link>
               </h4>
               <p>
                 <span className="flaticon-placeholder"></span>
@@ -26,13 +26,13 @@ const PropertiesCard = () => {
 
               <ul className="prop_details mb0">
                 <li className="list-inline-item">
-                  <a href="#">Beds: 4</a>
+                  <Link href={`/flats/${"randsdfdsf"}`}>Beds: 4</Link>
                 </li>
                 <li className="list-inline-item" >
-                  <a href="#">Baths: 4</a>
+                  <Link href={`/flats/${"randsdfdsf"}`}>Baths: 4</Link>
                 </li>
                 <li className="list-inline-item" >
-                  <a href="#">SqFt: 4</a>
+                  <Link href={`/flats/${"randsdfdsf"}`}>SqFt: 4</Link>
                 </li>
               </ul>
             </div>
