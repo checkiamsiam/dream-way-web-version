@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const PropertiesCard = () => {
@@ -6,7 +7,7 @@ const PropertiesCard = () => {
       <div className="item col-lg-4 col-sm-6">
         <div className="feat_property home3">
           <div className="thumb">
-            <img className="img-whp" src="/assets/images/property/fp1.jpg" alt="fp1.jpg" />
+            <Image className="img-whp" width={100} height={100} src="/assets/images/property/fp1.jpg" alt="fp1.jpg" />
             <div className="thmb_cntnt">
               <Link href={`/flats/${"randsdfdsf"}`} className="fp_price">
                 $1000000

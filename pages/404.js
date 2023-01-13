@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Seo from "../components/common/seo";
 
@@ -10,7 +11,7 @@ function NotFound() {
           <div className="row">
             <div className="col-lg-10 offset-lg-1 text-center">
               <div className="error_page footer_apps_widget">
-                <img className="img-fluid img-thumb" src="/assets/images/resource/error.png" alt="error.png" />
+                <Image className="img-fluid img-thumb" width={200} height={200} src="/assets/images/resource/error.png" alt="error.png" />
                 <div className="erro_code">
                   <h1>Ohh! Page Not Found</h1>
                 </div>
