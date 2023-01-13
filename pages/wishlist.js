@@ -1,8 +1,9 @@
 import { getSession } from 'next-auth/react';
 import Seo from '../components/common/seo';
 import WishListCard from '../components/wishlist/WishListCard';
+import axiosApi from '../features/axiosInstance';
 
-function WishList() {
+function WishList({ cart }) {
     return (
         <>
             <Seo pageTitle="Wish List" />
@@ -18,9 +19,9 @@ function WishList() {
                     <div className="col-lg-12">
                         <div className="my_dashboard_review ">
                             <div className="favorite_item_list">
-                                <WishListCard />
-                                <WishListCard />
-                                <WishListCard />
+                                {cart.map((item) => (
+                                    <WishListCard key={item.id} item={item} />
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -43,9 +44,20 @@ export async function getServerSideProps(context) {
             },
         };
     }
+
+    //https://dreamwayapi.sajidurapp.xyz/api/order/cart
+
+    const token = session?.user?.token?.token;
+
+    const { data } = await axiosApi.get('/api/order/cart', {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
     return {
         props: {
-            session,
+            cart: data.response,
         },
     };
 }
