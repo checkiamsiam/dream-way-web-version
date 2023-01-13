@@ -60,6 +60,11 @@ const MobileMenuContent = () => {
             </Link>
           </MenuItem>
           <MenuItem>
+            <Link href="/wishlist" className={route.pathname === "/Wishlist" ? "ui-active" : undefined}>
+              Wishlist
+            </Link>
+          </MenuItem>
+          <MenuItem>
             <Link href="/contact" className={route.pathname === "/contact" ? "ui-active" : undefined}>
               Contact
             </Link>
