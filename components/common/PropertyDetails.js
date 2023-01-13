@@ -1,16 +1,16 @@
-const PropertyDetails = () => {
+const PropertyDetails = ({propertyDetail}) => {
   return (
     <>
       <div className="col-md-6 col-lg-6 col-xl-4">
         <ul className="list-inline-item">
           <li>
             <p>
-              Property ID : <span>HZ27</span>
+              Property ID : <span>{propertyDetail?.id || propertyDetail?.flatid}</span>
             </p>
           </li>
           <li>
             <p>
-              Price : <span>$130,000</span>
+              Price : <span>$ {propertyDetail?.price || propertyDetail?.regular_price}</span>
             </p>
           </li>
           <li>

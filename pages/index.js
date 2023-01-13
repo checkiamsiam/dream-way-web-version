@@ -5,12 +5,13 @@ import GetInTouch from "../components/Home/GetInTouch";
 import HomeSlider from "../components/Home/HomeSlider";
 import OurPartners from "../components/Home/OurPartners";
 import WhyUs from "../components/Home/WhyUs";
+import axiosApi from "../features/axiosInstance";
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <>
       <Seo pageTitle="Home" />
-      <HomeSlider />
+      <HomeSlider sliderData={data.sliders} />
       <AboutUs />
       <WhyUs />
       <GetInTouch />
@@ -18,4 +19,14 @@ export default function Home() {
       <CallToAction />
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const { data } = await axiosApi.get("/api/home/home");
+
+  return {
+    props: {
+      data: data,
+    },
+  };
 }

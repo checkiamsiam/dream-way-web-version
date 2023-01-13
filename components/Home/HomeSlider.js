@@ -1,6 +1,7 @@
+import Link from "next/link";
 import Slider from "react-slick";
 
-function HomeSlider() {
+function HomeSlider({ sliderData }) {
   const settings = {
     dots: false,
     arrow: true,
@@ -18,7 +19,6 @@ function HomeSlider() {
             <Slider {...settings}>
               <div className="slide slide-one image-1"></div>
               <div className="slide slide-one image-2"></div>
-              <div className="slide slide-one image-1"></div>
             </Slider>
           </div>
         </div>
@@ -43,16 +43,20 @@ function HomeSlider() {
               <h4 className="text-center color-white fw600 mb25 mb0-520">What are you looking for?</h4>
               <ul className="home4_iconbox mb0">
                 <li className="list-inline-item">
-                  <div className="icon">
-                    <span className="flaticon-house"></span>
-                    <p>Lands</p>
-                  </div>
+                  <Link href="/lands">
+                    <div className="icon">
+                      <span className="flaticon-house"></span>
+                      <p>Lands</p>
+                    </div>
+                  </Link>
                 </li>
                 <li className="list-inline-item">
-                  <div className="icon">
-                    <span className="flaticon-building"></span>
-                    <p>Flats</p>
-                  </div>
+                  <Link href="/flats">
+                    <div className="icon">
+                      <span className="flaticon-building"></span>
+                      <p>Flats</p>
+                    </div>
+                  </Link>
                 </li>
               </ul>
             </div>
