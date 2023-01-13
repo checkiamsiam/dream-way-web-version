@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import notificationBell from "../../public/assets/images/about/1.jpg";
-import { AiFillFileText } from "react-icons/ai";
-import { RiInstallLine } from "react-icons/ri";
 function RequestedPropertyCard() {
   return (
     <div className="feat_property list favorite_page">
