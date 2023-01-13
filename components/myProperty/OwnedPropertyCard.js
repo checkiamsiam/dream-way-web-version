@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import notificationBell from "../../public/assets/images/about/1.jpg";
-import { ImCart } from "react-icons/im";
-function WishListCard() {
+import { AiFillFileText } from "react-icons/ai";
+import { RiInstallLine } from "react-icons/ri";
+function OwnedPropertyCard() {
   return (
     <div className="feat_property list favorite_page">
       <div className="thumb">
         <Image className="img-whp cover w-auto h-auto" src={notificationBell} alt="fp1.jpg" />
-      
       </div>
       {/* End .thumb */}
 
@@ -28,14 +28,14 @@ function WishListCard() {
       {/* End details */}
 
       <ul className="view_edit_delete_list mb0 mt35">
-        <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Remove">
+        <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Installment">
           <a href="#">
-            <span className="flaticon-garbage"></span>
+          <RiInstallLine style={{ color: "#FF5A5F" }} />
           </a>
         </li>
-        <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Place Order">
+        <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Documents">
           <a href="#">
-            <ImCart style={{color: "#FF5A5F"}}/>
+            <AiFillFileText style={{ color: "#FF5A5F" }} /> 
           </a>
         </li>
       </ul>
@@ -44,4 +44,4 @@ function WishListCard() {
   );
 }
 
-export default WishListCard;
+export default OwnedPropertyCard;
