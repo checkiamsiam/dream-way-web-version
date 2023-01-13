@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { useRegisterMutation } from "../../features/user/userApi";
 
 const Form = () => {
-  const [register, { isLoading, isSuccess , error}] = useRegisterMutation();
+  const [register, { isLoading }] = useRegisterMutation();
   const ref = useRef();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,8 +19,8 @@ const Form = () => {
     await register(data);
   };
 
-  if(isLoading){
-    console.log("loading" , error );
+  if (isLoading) {
+    console.log("loading");
   }
   return (
     <section className="our-log bgc-fa">

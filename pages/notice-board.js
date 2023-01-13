@@ -1,7 +1,8 @@
 import Seo from "../components/common/seo";
 import NoticeCard from "../components/noticeBoard/NoticeCard";
+import axiosApi from "../features/axiosInstance";
 
-function Login() {
+function NoticeBoard() {
   return (
     <>
       <Seo pageTitle="Notice" />
@@ -29,4 +30,15 @@ function Login() {
   );
 }
 
-export default Login;
+export default  NoticeBoard;
+
+
+// export async function getServerSideProps() {
+//   const {data} = await axiosApi.get("/api/notice/getMyNotice");
+
+//   return {
+//       props: {
+//           notice: data.response,
+//       },
+//   };
+// }
