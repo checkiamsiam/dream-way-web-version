@@ -7,11 +7,14 @@ function DetailContent() {
     <div className="container mt50 mb50">
       <div className="listing_single_description ">
         <div className="lsd_list">
-          <ul className="mb0">
-            <li className="list-inline-item">
-              <Link href="/flats">Flat</Link>
-            </li>
-          </ul>
+          <div className="mb0 d-flex gap-3">
+              <button className="btn btn-lg btn-yellow rounded-2">
+                Add To Cart
+              </button>
+              <button className="btn btn-lg btn-green rounded-2">
+                Place Order
+              </button>
+          </div>
         </div>
         <h4 className="mb30">Description</h4>
         <PropertyDescriptions />

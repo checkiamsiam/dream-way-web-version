@@ -27,6 +27,7 @@ const Header = () => {
         route.pathname === "/login" ||
         route.pathname === "/flats" ||
         route.pathname === "/register" ||
+        route.pathname === "/contact" ||
         route.pathname === "/lands"
           ? "stricky-fixed "
           : ""
