@@ -8,7 +8,6 @@ const Header = () => {
   const route = useRouter();
   const [navbar, setNavbar] = useState(false);
 
-
   const changeBackground = () => {
     if (window.scrollY >= 95) {
       setNavbar(true);
@@ -31,6 +30,7 @@ const Header = () => {
         route.pathname === "/register" ||
         route.pathname === "/notice-board" ||
         route.pathname === "/my-property" ||
+        route.pathname === "/email-verification" ||
         route.pathname === "/wishlist" ||
         route.pathname === "/contact" ||
         route.pathname === "/lands"
