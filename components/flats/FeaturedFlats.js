@@ -15,12 +15,12 @@ function FeaturedFlats() {
         <div className="row">
           <div className="col-lg-12">
             <div className="row">
-              <PropertiesCard/>
-              <PropertiesCard/>
-              <PropertiesCard/>
-              <PropertiesCard/>
-              <PropertiesCard/>
-              <PropertiesCard/>
+              <PropertiesCard />
+              <PropertiesCard />
+              <PropertiesCard />
+              <PropertiesCard />
+              <PropertiesCard />
+              <PropertiesCard />
             </div>
           </div>
         </div>
