@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import MobileMenuContent from "./MobileMenuContent";
 
@@ -8,11 +9,7 @@ const MobileMenu = () => {
       <div className="mobile-menu">
         <div className="header stylehome1">
           <div className="main_logo_home2 text-center">
-            <img
-              className="nav_logo_img img-fluid mt20"
-              src="/assets/images/header-logo2.png"
-              alt="header-logo2.png"
-            />
+            <Image width={40} height={40} className="nav_logo_img img-fluid mt20" src="/assets/images/header-logo2.png" alt="header-logo2.png" />
             <span className="mt20">Dream Way</span>
           </div>
           {/* main_logo_home2 */}
@@ -20,15 +17,10 @@ const MobileMenu = () => {
           <ul className="menu_bar_home2">
             <li className="list-inline-item list_s">
               <Link href="/login">
-                  <span className="flaticon-user"></span>
+                <span className="flaticon-user"></span>
               </Link>
             </li>
-            <li
-              className="list-inline-item"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasMenu"
-              aria-controls="offcanvasMenu"
-            >
+            <li className="list-inline-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
               <a>
                 <span></span>
               </a>
@@ -39,13 +31,7 @@ const MobileMenu = () => {
       </div>
       {/* <!-- /.mobile-menu --> */}
 
-      <div
-        className="offcanvas offcanvas-start"
-        tabIndex="-1"
-        id="offcanvasMenu"
-        aria-labelledby="offcanvasMenuLabel"
-        data-bs-scroll="true"
-      >
+      <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel" data-bs-scroll="true">
         <MobileMenuContent />
       </div>
     </div>

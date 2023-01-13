@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -40,8 +41,8 @@ const Header = () => {
         {/* <!-- Ace Responsive Menu --> */}
 
         <Link href="/" className="navbar_brand float-start dn-smd">
-          <img className="logo1 img-fluid" src="/assets/images/header-logo.png" alt="header-logo.png" />
-          <img className="logo2 img-fluid" src="/assets/images/header-logo2.png" alt="header-logo2.png" />
+          <Image width={40} height={40} className="logo1 img-fluid" src="/assets/images/header-logo.png" alt="header-logo.png" />
+          <Image width={40} height={40} className="logo2 img-fluid" src="/assets/images/header-logo2.png" alt="header-logo2.png" />
           <span>Dream Way</span>
         </Link>
         {/* site logo brand */}

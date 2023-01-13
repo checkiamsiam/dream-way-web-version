@@ -1,5 +1,5 @@
 import Seo from "../components/common/seo";
-import OwnedPropertyCard from "../components/myProperty/ownedPropertyCard";
+import OwnedPropertyCard from "../components/myProperty/OwnedPropertyCard";
 import RequestedPropertyCard from "../components/myProperty/RequestedPropertyCard";
 
 function MyProperty() {
@@ -24,7 +24,6 @@ function MyProperty() {
                       <option>Requested</option>
                     </select>
                   </li>
-                  {/* End li */}
                 </ul>
               </div>
             </div>
@@ -34,7 +33,7 @@ function MyProperty() {
             <div className="my_dashboard_review ">
               <div className="favorite_item_list">
                 <OwnedPropertyCard />
-                <RequestedPropertyCard/>
+                <RequestedPropertyCard />
               </div>
             </div>
           </div>

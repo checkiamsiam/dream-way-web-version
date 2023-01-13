@@ -2,6 +2,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { ProSidebar, SidebarHeader, SidebarFooter, Menu, MenuItem, SubMenu, SidebarContent } from "react-pro-sidebar";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const MobileMenuContent = () => {
   const route = useRouter();
@@ -12,7 +13,7 @@ const MobileMenuContent = () => {
       <SidebarHeader>
         <div className="sidebar-header">
           <Link href="/" className="sidebar-header-inner">
-            <img className="nav_logo_img img-fluid mt20" src="/assets/images/header-logo2.png" alt="header-logo.png" />
+            <Image width={40} height={40} className="nav_logo_img img-fluid mt20" src="/assets/images/header-logo2.png" alt="header-logo.png" />
             <span className="brand-text">Dream Way</span>
           </Link>
           {/* End .logo */}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CopyrightFooter from "./footer/CopyrightFooter";
 import Social from "./footer/Social";
-import SubscribeForm from "./footer/SubscribeForm";
+import SubscribeForm from "./footer/SubscribeForm"
 
 const Footer = () => {
   return (
