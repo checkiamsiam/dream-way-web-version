@@ -4,7 +4,7 @@ import AddressSidebar from "../components/contact/AddressSidebar";
 import BreadCrumbBanner from "../components/contact/BreadCrumbBanner";
 import Form from "../components/contact/Form";
 
-function Login() {
+function Contact() {
   return (
     <>
       <Seo pageTitle="Contact" />
@@ -48,4 +48,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Contact;
