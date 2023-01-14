@@ -8,7 +8,7 @@ function FlatDetails({ flat }) {
     <>
       <Seo pageTitle="Flat Details" />
       <FlatDetailBannerGellary flat={flat} />
-      <DetailContent />
+      <DetailContent flat={flat}/>
     </>
   );
 }

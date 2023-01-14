@@ -1,12 +1,11 @@
 import { useSession } from "next-auth/react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import PropertyDescriptions from "../../common/PropertyDescriptions";
 import PropertyDetails from "../../common/PropertyDetails";
 
-function DetailContent() {
+function DetailContent({ flat }) {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [addToCart, { isSuccess, isError, data }] = useAddToCartMutation();
@@ -15,8 +14,6 @@ function DetailContent() {
     propertyType: (router.query.flatId && 2) || (router.query.landId && 1),
   };
 
-  console.log(session);
-  console.log(session?.user?.token?.token);
   useEffect(() => {
     isSuccess && router.push("/wishlist");
   }, [isSuccess, isError, data, router]);
@@ -39,7 +36,7 @@ function DetailContent() {
           <div className="col-lg-12">
             <h4 className="mb15">Property Details</h4>
           </div>
-          <PropertyDetails />
+          <PropertyDetails propertyDetail={flat} />
         </div>
       </div>
     </div>

@@ -46,8 +46,6 @@ export async function getServerSideProps(context) {
     };
   }
 
-  //https://dreamwayapi.sajidurapp.xyz/api/order/cart
-
   const token = session?.user?.token?.token;
 
   const { data } = await axiosApi.get("/api/order/cart", {
