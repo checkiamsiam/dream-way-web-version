@@ -3,7 +3,7 @@ import PropertiesCard from "../common/PropertiesCard";
 
 function FeaturedLands({ lands }) {
   const { searchKey } = useSelector((state) => state.searchKey);
-  const filtered = flats.filter((flat) => flat.title.includes(searchKey));
+  const filtered = lands.filter((land) => land.title.includes(searchKey));
   return (
     <section id="best-property" className="best-property bgc-f7">
       <div className="container ovh">
