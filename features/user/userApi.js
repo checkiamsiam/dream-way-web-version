@@ -13,7 +13,6 @@ export const userApi = api.injectEndpoints({
                 try {
                     const result = await queryFulfilled;
                     console.log(result);
-
                     toast.success(result.msg, {
                         position: 'top-center',
                         autoClose: 5000,
@@ -37,7 +36,14 @@ export const userApi = api.injectEndpoints({
                 body: credentials,
             }),
         }),
+        registerVerification: builder.mutation({
+            query: (credentials) => ({
+                url: '/api/user/verify_user',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
     }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = userApi;
+export const { useRegisterMutation, useLoginMutation , useRegisterVerificationMutation } = userApi;
