@@ -6,7 +6,10 @@ export const propertyApi = api.injectEndpoints({
       query: (credentials) => ({
         url: "/api/order/cart",
         method: "POST",
-        body: credentials,
+        body: credentials.body,
+        headers: {
+          Authorization: `Bearer ${credentials.token}`,
+        },
       }),
     }),
   }),
