@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import PropertyDescriptions from "../../common/PropertyDescriptions";
 import PropertyDetails from "../../common/PropertyDetails";
 
 function DetailContent() {
+  const router = useRouter()
+  console.log(router);
   return (
     <div className="container mt50 mb50">
       <div className="listing_single_description ">
