@@ -2,6 +2,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { ImCart } from "react-icons/im";
 import { toast } from "react-toastify";
 import { usePlaceOrderMutation, useRemoveFromCartMutation } from "../../features/property/propertyApi";
