@@ -91,7 +91,7 @@ const Form = () => {
                     placeholder="Comments"
                   ></textarea>
                 </div>
-                <p className="text-danger my-2">{data?.message}</p>
+                <p className="text-danger my-2">{isError && error?.message}</p>
                 <input type="submit" value="Continue" className="btn btn-log w-100 btn-thm" />
               </form>
             </div>
