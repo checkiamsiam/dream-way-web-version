@@ -19,8 +19,8 @@ function WishList({ cart }) {
           <div className="col-lg-12">
             <div className="my_dashboard_review ">
               <div className="favorite_item_list">
-                {cart.map((item, i) => (
-                  <WishListCard key={i} item={item} />
+                {cart.map((item) => (
+                  <WishListCard key={item.id} item={item} />
                 ))}
               </div>
             </div>

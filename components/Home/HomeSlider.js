@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Slider from "react-slick";
 
-function HomeSlider({ sliderData }) {
+function HomeSlider() {
   const settings = {
     dots: false,
     arrow: true,
