@@ -30,7 +30,7 @@ const Form = () => {
         progress: undefined,
         theme: "light",
       });
-    isSuccess && router.push("/");
+    isSuccess && router.push("/login");
   }, [isSuccess, isError, data, router]);
 
   console.log(data);

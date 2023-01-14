@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import PropertiesCard from "../common/PropertiesCard";
 
 function FeaturedFlats({ flats }) {
+  const { searchKey } = useSelector((state) => state.searchKey);
+  const filtered = flats.filter((flat) => flat.title.includes(searchKey));
   return (
     <section id="best-property" className="best-property bgc-f7">
       <div className="container ovh">
@@ -14,11 +17,7 @@ function FeaturedFlats({ flats }) {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <div className="row">
-              {flats && flats.map((flat, i) => (
-                <PropertiesCard key={i} property={flat} type="Flat" />
-              ))}
-            </div>
+            <div className="row">{flats && filtered.map((flat, i) => <PropertiesCard key={i} property={flat} type="Flat" />)}</div>
           </div>
         </div>
       </div>

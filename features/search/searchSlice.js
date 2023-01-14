@@ -4,7 +4,7 @@ const initialState = {
   searchKey: "",
 };
 
-export const userSlice = createSlice({
+export const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
@@ -14,6 +14,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setSearchKey } = userSlice.actions;
+export const { setSearchKey } = searchSlice.actions;
 
-export default userSlice.reducer;
+export default searchSlice.reducer;
