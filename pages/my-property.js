@@ -43,8 +43,8 @@ function MyProperty({ myProperty, myRequests }) {
             <div className="my_dashboard_review ">
               <div className="favorite_item_list">
                 {propertyType === "owned"
-                  ? myProperty.length && myProperty.map((property) => <OwnedPropertyCard key={property.id} property={property} />)
-                  : myRequests.length && myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
+                  ? myProperty !== [] && myProperty.map((property) => <OwnedPropertyCard key={property.id} property={property} />)
+                  : myRequests !== [] && myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
               </div>
             </div>
           </div>
