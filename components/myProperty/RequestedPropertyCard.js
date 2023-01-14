@@ -50,7 +50,7 @@ function RequestedPropertyCard({ property }) {
       </div>
       {/* End details */}
       <span className="status_tag badge mt50">{status}</span> <br />
-      <span>Admin Comments: {"n/a"}</span>
+      <div>Admin Comments: {property?.admin_comments}</div>
       {/* view_edit_delete_list */}
     </div>
   );
