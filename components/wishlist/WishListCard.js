@@ -2,12 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import notificationBell from "../../public/assets/images/about/1.jpg";
 import { ImCart } from "react-icons/im";
-function WishListCard() {
+import { convertStringToArray } from "../common/utilityFunctions";
+function WishListCard({ item }) {
   return (
     <div className="feat_property list favorite_page">
       <div className="thumb">
-        <Image className="img-whp cover w-auto h-auto" src={notificationBell} alt="fp1.jpg" />
-      
+        <Image
+          width={100}
+          height={100}
+          className="img-whp cover w-auto h-auto"
+          src={`https://dreamwayapi.sajidurapp.xyz/${convertStringToArray(item.img_url)[0]}`}
+          alt="fp1.jpg"
+        />
       </div>
       {/* End .thumb */}
 
@@ -15,13 +21,13 @@ function WishListCard() {
         <div className="tc_content">
           <h4>
             {" "}
-            <Link href="">Dhanmondi Propertry</Link>
+            <Link href="">{item?.title}</Link>
           </h4>
           <p>
-            <span className="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 900015
+            <span className="flaticon-placeholder"></span> {item?.address}
           </p>
           <a className="fp_price text-thm" href="#">
-            100000 BDT
+            $ {item?.price || item.regular_price} BDT
           </a>
         </div>
       </div>
@@ -35,7 +41,7 @@ function WishListCard() {
         </li>
         <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Place Order">
           <a href="#">
-            <ImCart style={{color: "#FF5A5F"}}/>
+            <ImCart style={{ color: "#FF5A5F" }} />
           </a>
         </li>
       </ul>
