@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearchKey } from "../../features/search/searchSlice";
 import BreadCrumb from "../common/BreadCrumb";
 
 const BreadCrumbBannerForFlatPage = () => {
+  const { searchKey } = useSelector((state) => state.searchKey);
   const dispatch = useDispatch();
   return (
     <section className="inner_page_breadcrumb ">
@@ -16,8 +17,9 @@ const BreadCrumbBannerForFlatPage = () => {
                 <div className="d-flex justify-content-center align-items-center gap-2 mt15">
                   <div className="form-group w-100">
                     <input
-                      onChange={(e) => dispatch(setSearchKey(e.target.value))}
                       type="text"
+                      onChange={(e) => dispatch(setSearchKey(e.target.value))}
+                      defaultValue={searchKey}
                       className="form-control"
                       placeholder="Enter Flats..."
                     />

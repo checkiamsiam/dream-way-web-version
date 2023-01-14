@@ -1,6 +1,8 @@
 import PropertiesCard from "../common/PropertiesCard";
 
 function FeaturedLands({ lands }) {
+  const { searchKey } = useSelector((state) => state.searchKey);
+  const filtered = flats.filter((flat) => flat.title.includes(searchKey));
   return (
     <section id="best-property" className="best-property bgc-f7">
       <div className="container ovh">
@@ -14,7 +16,7 @@ function FeaturedLands({ lands }) {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <div className="row">{lands && lands?.map((land) => <PropertiesCard key={land.id} property={land} type="Land" />)}</div>
+            <div className="row">{lands && filtered?.map((land) => <PropertiesCard key={land.id} property={land} type="Land" />)}</div>
           </div>
         </div>
       </div>
