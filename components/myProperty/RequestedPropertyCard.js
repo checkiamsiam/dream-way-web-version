@@ -44,15 +44,17 @@ function RequestedPropertyCard({ property }) {
             <span className="flaticon-placeholder"></span> {property?.property?.address}
           </p>
           <p>
-            <span className="flaticon-placeholder"></span> Admin Comments: {property?.admin_comments}
+            Admin Comments: {property?.admin_comments}
           </p>
-          <a className="fp_price text-thm" href="#">
-            {property?.property?.price || property?.property?.regular_price} BDT
-          </a>
         </div>
       </div>
       {/* End details */}
       <span className="status_tag badge mt50">{status}</span>
+      <br />
+      
+      <a className="fp_price text-thm ml5 mt50" href="#">
+            {property?.property?.price || property?.property?.regular_price} BDT
+          </a>
       {/* view_edit_delete_list */}
     </div>
   );
