@@ -8,7 +8,7 @@ const Form = () => {
   const router = useRouter();
   const { target } = useSelector((state) => state.property);
   const ref = useRef();
-  const [placeOrder, { isSuccess, isError, data }] = usePlaceOrderMutation();
+  const [placeOrder, { isSuccess, isError, error, data }] = usePlaceOrderMutation();
   const { data: session, status } = useSession();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const Form = () => {
   useEffect(() => {
     isSuccess && router.push("/my-property");
   }, [isSuccess, isError, data, router]);
-  console.log(data);
+  console.log(error);
   return (
     <section className="our-log bgc-fa mt85">
       <div className="container">
