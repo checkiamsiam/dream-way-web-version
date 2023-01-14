@@ -43,8 +43,8 @@ function MyProperty({ myProperty, myRequests }) {
             <div className="my_dashboard_review ">
               <div className="favorite_item_list">
                 {propertyType === "owned"
-                  ? myProperty.map((property) => <OwnedPropertyCard key={property.id} property={property} />)
-                  : myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
+                  ? myProperty.length && myProperty.map((property) => <OwnedPropertyCard key={property.id} property={property} />)
+                  : myRequests.length && myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
               </div>
             </div>
           </div>
@@ -87,8 +87,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      myProperty: myProperty.data.response,
-      myRequests: myRequests.data.response,
+      myProperty: myProperty?.data?.response,
+      myRequests: myRequests?.data?.response,
     },
   };
 }
