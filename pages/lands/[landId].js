@@ -20,7 +20,7 @@ export async function getServerSideProps(cxt) {
   const { data } = await axiosApi.get(`/api/land/${id}`);
   return {
     props: {
-      land : data.response[0],
+      land : data?.response[0],
     },
   };
 }

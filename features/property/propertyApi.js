@@ -12,7 +12,17 @@ export const propertyApi = api.injectEndpoints({
         },
       }),
     }),
+    placeOrder: builder.mutation({
+      query: (credentials) => ({
+        url: "/api/order/cart/requestOrder",
+        method: "POST",
+        body: credentials.body,
+        headers: {
+          Authorization: `Bearer ${credentials.token}`,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useAddToCartMutation } = propertyApi;
+export const { useAddToCartMutation, usePlaceOrderMutation } = propertyApi;

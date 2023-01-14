@@ -1,17 +1,25 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useAddToCartMutation } from "../../../features/property/propertyApi";
+import { setPropertyTarget } from "../../../features/property/propertySlice";
 import PropertyDescriptions from "../../common/PropertyDescriptions";
 import PropertyDetails from "../../common/PropertyDetails";
 
 function DetailContent({ flat }) {
   const router = useRouter();
+  const dispatch = useDispatch();
   const { data: session, status } = useSession();
   const [addToCart, { isSuccess, isError, data }] = useAddToCartMutation();
   const queryBody = {
     propertyID: router.query.flatId || router.query.landId,
     propertyType: (router.query.flatId && 2) || (router.query.landId && 1),
+  };
+
+  const handlePlaceOrder = () => {
+    dispatch(setPropertyTarget(queryBody));
+    router.push("/customer-information");
   };
 
   useEffect(() => {
@@ -25,7 +33,7 @@ function DetailContent({ flat }) {
             <button onClick={() => addToCart({ body: queryBody, token: session?.user?.token?.token })} className="btn btn-lg btn-yellow rounded-2">
               Add To Cart
             </button>
-            <button onClick={() => router.push("/customer-information")} className="btn btn-lg btn-green rounded-2">
+            <button onClick={handlePlaceOrder} className="btn btn-lg btn-green rounded-2">
               Place Order
             </button>
           </div>

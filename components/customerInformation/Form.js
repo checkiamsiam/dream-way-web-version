@@ -1,17 +1,33 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { usePlaceOrderMutation } from "../../features/property/propertyApi";
 
 const Form = () => {
+  const router = useRouter();
+  const { target } = useSelector((state) => state.property);
   const ref = useRef();
+  const [placeOrder, { isSuccess, isError, data }] = usePlaceOrderMutation();
   const { data: session, status } = useSession();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // main
+    const queryBody = {
+      propertyID: target.propertyID,
+      propertyType: target.propertyType,
+      name: ref.current.name?.value,
+      phone: ref.current.phone?.value,
+      email: ref.current.email?.value,
+      comment: ref.current.comment?.value,
+    };
+    await placeOrder({ body: queryBody, token: session?.user?.token?.token });
   };
   useEffect(() => {
     status === "authenticated" || router.push("/login");
-  }, [status]);
+  }, [status, router]);
+  useEffect(() => {
+    isSuccess && router.push("/my-property");
+  }, [isSuccess, isError, data, router]);
   return (
     <section className="our-log bgc-fa mt85">
       <div className="container">
@@ -67,7 +83,7 @@ const Form = () => {
                 <div className="form-group h100 mb-4">
                   <textarea
                     id="form_message"
-                    name="form_message"
+                    name="comment"
                     className="form-control h-100 required"
                     rows={5}
                     required="required"
