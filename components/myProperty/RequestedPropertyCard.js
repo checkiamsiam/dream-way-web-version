@@ -3,6 +3,26 @@ import Link from "next/link";
 import notificationBell from "../../public/assets/images/about/1.jpg";
 import { convertStringToArray } from "../common/utilityFunctions";
 function RequestedPropertyCard({ property }) {
+  let status;
+  switch (property.r_status) {
+    case 0:
+      status = "Pending";
+      break;
+    case 1:
+      status = "Accepted";
+      break;
+    case 2:
+      status = "Rejected";
+      break;
+    case 3:
+      status = "Delivered";
+      break;
+    case 4:
+      status = "Canceled";
+      break;
+    default:
+      break;
+  }
   console.log(property);
   return (
     <div className="feat_property list favorite_page">
@@ -14,7 +34,6 @@ function RequestedPropertyCard({ property }) {
         />
       </div>
       {/* End .thumb */}
-
       <div className="details">
         <div className="tc_content">
           <h4>
@@ -25,14 +44,13 @@ function RequestedPropertyCard({ property }) {
             <span className="flaticon-placeholder"></span> {property?.property?.address}
           </p>
           <a className="fp_price text-thm" href="#">
-          {property?.property?.price || property?.property?.regular_price} BDT
+            {property?.property?.price || property?.property?.regular_price} BDT
           </a>
         </div>
       </div>
       {/* End details */}
-
-      <span className="status_tag badge mt50">Pending</span>
-
+      <span className="status_tag badge mt50">{status}</span> <br />
+      <span>Admin Comments: {"n/a"}</span>
       {/* view_edit_delete_list */}
     </div>
   );
