@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import notificationBell from "../../public/assets/images/about/1.jpg";
+import { convertStringToArray } from "../common/utilityFunctions";
 function RequestedPropertyCard({ property }) {
   console.log(property);
   return (
