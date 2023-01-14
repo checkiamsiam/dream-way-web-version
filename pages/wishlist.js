@@ -4,6 +4,7 @@ import WishListCard from "../components/wishlist/WishListCard";
 import axiosApi from "../features/axiosInstance";
 
 function WishList({ cart }) {
+  console.log(cart);
   return (
     <>
       <Seo pageTitle="Wish List" />

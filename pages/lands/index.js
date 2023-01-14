@@ -4,6 +4,7 @@ import FeaturedLands from "../../components/lands/FeaturedLands";
 import axiosApi from "../../features/axiosInstance";
 
 function Lands({ lands }) {
+  console.log(lands);
   return (
     <>
       <Seo pageTitle="Lands" />
