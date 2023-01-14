@@ -11,7 +11,7 @@ function WishListCard({ item }) {
           width={100}
           height={100}
           className="img-whp cover w-auto h-auto"
-          src={`https://dreamwayapi.sajidurapp.xyz/${convertStringToArray(item.img_url)[0]}`}
+          src={notificationBell}
           alt="fp1.jpg"
         />
       </div>
