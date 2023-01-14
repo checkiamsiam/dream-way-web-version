@@ -1,6 +1,8 @@
+import { useDispatch } from "react-redux";
 import BreadCrumb from "../common/BreadCrumb";
 
 const BreadCrumbBannerForFlatPage = () => {
+  const dispatch = useDispatch()
   return (
     <section className="inner_page_breadcrumb ">
       <div className="container">

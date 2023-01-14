@@ -13,7 +13,7 @@ const Form = () => {
     e.preventDefault();
     const data = {
       email: emailForVerification,
-      otp: ref.current.name?.value,
+      otp: ref.current.otp?.value,
     };
     await verify(data);
   };

@@ -87,8 +87,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      myProperty: myProperty.data.response,
-      myRequests: myRequests.data.response,
+      myProperty: myProperty?.data?.response,
+      myRequests: myRequests?.data?.response,
     },
   };
 }
