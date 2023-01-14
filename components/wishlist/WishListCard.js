@@ -1,9 +1,15 @@
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ImCart } from "react-icons/im";
+import { useRemoveFromCartMutation } from "../../features/property/propertyApi";
 import { convertStringToArray } from "../common/utilityFunctions";
 
 function WishListCard({ item }) {
+  const router = useRouter();
+  const { data: session, status } = useSession();
+  const [removeFromCart] = useRemoveFromCartMutation();
   console.log(item);
 
   return (
@@ -41,8 +47,8 @@ function WishListCard({ item }) {
           data-toggle="tooltip"
           data-placement="top"
           title="Remove"
-          onClick={() => {
-            console.log("remove");
+          onClick={async () => {
+            await removeFromCart({ id: item?.property?.id || item?.property?.flatId, token: session?.user?.token?.token });
           }}
         >
           <a href="#">

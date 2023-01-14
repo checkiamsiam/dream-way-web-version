@@ -12,6 +12,15 @@ export const propertyApi = api.injectEndpoints({
         },
       }),
     }),
+    removeFromCart: builder.mutation({
+      query: (credentials) => ({
+        url: `/api/order/cart/${credentials.id}`,
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${credentials.token}`,
+        },
+      }),
+    }),
     placeOrder: builder.mutation({
       query: (credentials) => ({
         url: "/api/order/cart/requestOrder",
@@ -25,4 +34,4 @@ export const propertyApi = api.injectEndpoints({
   }),
 });
 
-export const { useAddToCartMutation, usePlaceOrderMutation } = propertyApi;
+export const { useAddToCartMutation, usePlaceOrderMutation, useRemoveFromCartMutation } = propertyApi;
