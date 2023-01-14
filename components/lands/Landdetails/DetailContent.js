@@ -1,5 +1,6 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import PropertyDescriptions from "../../common/PropertyDescriptions";
 import PropertyDetails from "../../common/PropertyDetails";
