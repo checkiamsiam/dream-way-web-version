@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -7,16 +8,15 @@ import PropertyDetails from "../../common/PropertyDetails";
 
 function DetailContent() {
   const router = useRouter();
+  const { data: session, status } = useSession();
   const [addToCart, { isSuccess, isError, data }] = useAddToCartMutation();
   const queryBody = {
     propertyID: router.query.flatId || router.query.landId,
     propertyType: (router.query.flatId && 2) || (router.query.landId && 1),
   };
 
-  const handleAddToCart = async () => {
-    await addToCart(queryBody);
-  };
-
+  console.log(session);
+  console.log(session?.user?.token?.token);
   useEffect(() => {
     isSuccess && router.push("/wishlist");
   }, [isSuccess, isError, data, router]);
@@ -25,7 +25,7 @@ function DetailContent() {
       <div className="listing_single_description ">
         <div className="lsd_list">
           <div className="mb0 d-flex gap-3">
-            <button onClick={handleAddToCart} className="btn btn-lg btn-yellow rounded-2">
+            <button onClick={() => addToCart({ body: queryBody })} className="btn btn-lg btn-yellow rounded-2">
               Add To Cart
             </button>
             <button className="btn btn-lg btn-green rounded-2">Place Order</button>
