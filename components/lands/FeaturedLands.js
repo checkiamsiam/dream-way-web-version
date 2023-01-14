@@ -14,11 +14,7 @@ function FeaturedLands({ lands }) {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <div className="row">
-              {lands?.map((land) => (
-                <PropertiesCard key={land.id} property={land} type="Land" />
-              ))}
-            </div>
+            <div className="row">{lands && lands?.map((land) => <PropertiesCard key={land.id} property={land} type="Land" />)}</div>
           </div>
         </div>
       </div>

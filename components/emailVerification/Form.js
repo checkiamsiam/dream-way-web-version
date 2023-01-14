@@ -1,15 +1,39 @@
-import { useRef } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useRegisterVerificationMutation } from "../../features/user/userApi";
 
 const Form = () => {
+  const [verify, { isSuccess, isError, data }] = useRegisterVerificationMutation();
+  const { emailForVerification } = useSelector((state) => state.userData);
+  const router = useRouter();
   const ref = useRef();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
+      email: emailForVerification,
       otp: ref.current.name?.value,
-      email: ref.current.address?.value,
     };
-    await register(data);
+    await verify(data);
   };
+
+  useEffect(() => {
+    isSuccess &&
+      toast.success("user registered successfully", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    isSuccess && router.push("/");
+  }, [isSuccess, isError, data, router]);
+
+  console.log(data);
 
   return (
     <section className="our-log bgc-fa mt85">
@@ -20,7 +44,7 @@ const Form = () => {
               <form ref={ref} onSubmit={handleSubmit}>
                 <div className="heading text-center">
                   <h3>Dream Way</h3>
-                  <p className="text-center">OTP send to this email : demo@gmail.com</p>
+                  <p className="text-center">OTP send to this email : {emailForVerification}</p>
                 </div>
 
                 <div className="form-group input-group ">

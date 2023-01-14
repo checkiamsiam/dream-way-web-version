@@ -11,7 +11,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setEmailForRegisterVerification: (state, action) => {
-      state.emailForVerification === action.payload;
+      state.emailForVerification = action.payload;
     },
   },
 });
