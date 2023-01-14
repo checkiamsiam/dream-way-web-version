@@ -2,6 +2,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { usePlaceOrderMutation } from "../../features/property/propertyApi";
 
 const Form = () => {
@@ -21,6 +22,7 @@ const Form = () => {
       comment: ref.current.comment?.value,
     };
     await placeOrder({ body: queryBody, token: session?.user?.token?.token });
+    toast.warning(data.message);
   };
   useEffect(() => {
     status === "authenticated" || router.push("/login");
