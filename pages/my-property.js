@@ -30,8 +30,8 @@ function MyProperty({ myProperty, myRequests }) {
                       onChange={(e) => setPropertyType(e.target.value)}
                       className="selectpicker show-tick form-select c_select"
                     >
-                      <option value="owned">Owned</option>
-                      <option value="requested">Requested</option>
+                      <option value={"owned"}>Owned</option>
+                      <option value={"requested"}>Requested</option>
                     </select>
                   </li>
                 </ul>
@@ -42,8 +42,9 @@ function MyProperty({ myProperty, myRequests }) {
           <div className="col-lg-12">
             <div className="my_dashboard_review ">
               <div className="favorite_item_list">
-                {propertyType === "owned" && myProperty.map((property) => <OwnedPropertyCard key={property.id} property={property} />)}{" "}
-                {propertyType === "requested" && myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
+                {propertyType === "owned"
+                  ? myProperty.map((property) => <OwnedPropertyCard key={property.id} property={property} />)
+                  : myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
               </div>
             </div>
           </div>
@@ -86,8 +87,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      myProperty: myProperty?.data?.response,
-      myRequests: myRequests?.data?.response,
+      myProperty: myProperty.data.response,
+      myRequests: myRequests.data.response,
     },
   };
 }
