@@ -73,6 +73,7 @@ function WishListCard({ item }) {
           title="Remove"
           onClick={async () => {
             await removeFromCart({ id: item.id, token: session?.user?.token?.token });
+            router.reload();
           }}
         >
           <a href="#">

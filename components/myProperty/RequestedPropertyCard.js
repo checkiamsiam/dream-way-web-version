@@ -49,10 +49,10 @@ function RequestedPropertyCard({ property }) {
         </div>
       </div>
       {/* End details */}
-      <span className="status_tag badge mt50">{status}</span>
+      <span className="status_tag badge mr10 mt50">{status}</span>
       <br />
       
-      <a className="fp_price text-thm ml5 mt50" href="#">
+      <a className="fp_price text-thm mt50 px-10" href="#">
             {property?.property?.price || property?.property?.regular_price} BDT
           </a>
       {/* view_edit_delete_list */}
