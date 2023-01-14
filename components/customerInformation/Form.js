@@ -28,6 +28,7 @@ const Form = () => {
   useEffect(() => {
     isSuccess && router.push("/my-property");
   }, [isSuccess, isError, data, router]);
+  console.log(data);
   return (
     <section className="our-log bgc-fa mt85">
       <div className="container">
@@ -90,7 +91,7 @@ const Form = () => {
                     placeholder="Comments"
                   ></textarea>
                 </div>
-                <p className="text-danger my-2">{data.status === 0 && data.message}</p>
+                <p className="text-danger my-2">{data?.message}</p>
                 <input type="submit" value="Continue" className="btn btn-log w-100 btn-thm" />
               </form>
             </div>
