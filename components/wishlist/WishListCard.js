@@ -3,13 +3,36 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ImCart } from "react-icons/im";
-import { useRemoveFromCartMutation } from "../../features/property/propertyApi";
+import { toast } from "react-toastify";
+import { usePlaceOrderMutation, useRemoveFromCartMutation } from "../../features/property/propertyApi";
 import { convertStringToArray } from "../common/utilityFunctions";
 
 function WishListCard({ item }) {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [removeFromCart] = useRemoveFromCartMutation();
+  const [placeOrder, { isSuccess, isError, data }] = usePlaceOrderMutation();
+
+  const handlePlaceOrder = async () => {
+    const queryBody = {
+      propertyID: item?.p_id,
+      propertyType: item?.p_type,
+      name: session?.user?.token?.name,
+      phone: session?.user?.token?.phone,
+      email: session?.user?.token?.email,
+      comment: "",
+    };
+    await placeOrder({ body: queryBody, token: session?.user?.token?.token });
+    toast.warning(data?.message);
+  };
+
+  useEffect(() => {
+    status === "authenticated" || router.push("/login");
+  }, [status, router]);
+  useEffect(() => {
+    isSuccess && router.push("/my-property");
+  }, [isSuccess, isError, data, router]);
+
   console.log(item);
 
   return (
@@ -48,14 +71,14 @@ function WishListCard({ item }) {
           data-placement="top"
           title="Remove"
           onClick={async () => {
-            await removeFromCart({ id: item?.property?.id || item?.property?.flatId, token: session?.user?.token?.token });
+            await removeFromCart({ id: item.id, token: session?.user?.token?.token });
           }}
         >
           <a href="#">
             <span className="flaticon-garbage"></span>
           </a>
         </li>
-        <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Place Order">
+        <li onClick={handlePlaceOrder} className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Place Order">
           <a href="#">
             <ImCart style={{ color: "#FF5A5F" }} />
           </a>
