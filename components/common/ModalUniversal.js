@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
+import { Modal } from "@nextui-org/react";
 import Image from "next/image";
-import { useRouter } from "next/router";
-export default function modalUniversal() {
+
+function ModalUniversal() {
   const [visible, setVisible] = useState(true);
   const handler = () => setVisible(true);
   const closeHandler = () => {
@@ -19,3 +19,5 @@ export default function modalUniversal() {
     </>
   );
 }
+
+export default ModalUniversal;
