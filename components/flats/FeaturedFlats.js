@@ -15,7 +15,7 @@ function FeaturedFlats({ flats }) {
         <div className="row">
           <div className="col-lg-12">
             <div className="row">
-              {flats.map((flat, i) => (
+              {flats && flats.map((flat, i) => (
                 <PropertiesCard key={i} property={flat} type="Flat" />
               ))}
             </div>

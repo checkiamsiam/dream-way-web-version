@@ -21,7 +21,7 @@ const HeaderMenuContent = ({ float = '' }) => {
         >
             <li>
                 <Link
-                    href="/Lands"
+                    href="/lands"
                     className={
                         router.pathname === '/lands' ? 'ui-active' : undefined
                     }

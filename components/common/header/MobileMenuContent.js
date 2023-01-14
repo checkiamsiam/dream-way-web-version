@@ -3,11 +3,13 @@ import { ProSidebar, SidebarHeader, SidebarFooter, Menu, MenuItem, SubMenu, Side
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
 
 const MobileMenuContent = () => {
   const route = useRouter();
 
-  const properties = [{ id: 1, name: "Lands", routerPath: "/lands" }, { id: 2, name: "Flats", routerPath: "/flats" }, ,];
+  const { data: session, status } = useSession();
+
   return (
     <ProSidebar>
       <SidebarHeader>
@@ -30,56 +32,50 @@ const MobileMenuContent = () => {
       <SidebarContent>
         <Menu>
           <MenuItem>
-            <Link href="/" className={route.pathname === "/" ? "ui-active" : undefined}>
-              Home
+            <Link href="/lands" className={route.pathname === "/lands" ? "ui-active" : undefined}>
+              Lands
             </Link>
           </MenuItem>
-
-          <SubMenu
-            title="Properties"
-            className={
-              properties.some((page) => page.routerPath === route.pathname || page.routerPath + "/[id]" === route.pathname) ? "ui-active" : undefined
-            }
-          >
-            {properties.map((val, i) => (
-              <MenuItem key={i}>
-                <Link href={val.routerPath} className={route.pathname === val.routerPath ? "ui-active" : undefined}>
-                  {val.name}
-                </Link>
-              </MenuItem>
-            ))}
-          </SubMenu>
-
+          <MenuItem>
+            <Link href="/flats" className={route.pathname === "/lands" ? "ui-active" : undefined}>
+              Flats
+            </Link>
+          </MenuItem>
           <MenuItem>
             <Link href="/notice-board" className={route.pathname === "/notice-board" ? "ui-active" : undefined}>
               Notice Board
             </Link>
           </MenuItem>
-          <MenuItem>
-            <Link href="/my-property" className={route.pathname === "/my-property" ? "ui-active" : undefined}>
-              My Property
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link href="/wishlist" className={route.pathname === "/Wishlist" ? "ui-active" : undefined}>
-              Wishlist
-            </Link>
-          </MenuItem>
+          {status === "authenticated" && (
+            <MenuItem>
+              <Link href="/my-property" className={route.pathname === "/my-property" ? "ui-active" : undefined}>
+                My Property
+              </Link>
+            </MenuItem>
+          )}
+          {status === "authenticated" && (
+            <MenuItem>
+              <Link href="/wishlist" className={route.pathname === "/Wishlist" ? "ui-active" : undefined}>
+                Wishlist
+              </Link>
+            </MenuItem>
+          )}
           <MenuItem>
             <Link href="/contact" className={route.pathname === "/contact" ? "ui-active" : undefined}>
               Contact
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link href="/login" className={route.pathname === "/login" ? "ui-active" : undefined}>
-              <span className="flaticon-user"></span> Login
-            </Link>
-          </MenuItem>
-
-          <MenuItem>
-            <Link href="/register" className={route.pathname === "/register" ? "ui-active" : undefined}>
-              <span className="flaticon-edit"></span> Register
-            </Link>
+            {status === "authenticated" ? (
+              <button onClick={() => signOut()}>
+                <span className="flaticon-user me-2"></span>
+                Log Out
+              </button>
+            ) : (
+              <Link href="/login" className={route.pathname === "/login" ? "ui-active" : undefined}>
+                <span className="flaticon-user"></span> Login
+              </Link>
+            )}
           </MenuItem>
         </Menu>
       </SidebarContent>
