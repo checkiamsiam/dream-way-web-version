@@ -15,7 +15,7 @@ const MobileMenuContent = () => {
       <SidebarHeader>
         <div className="sidebar-header">
           <Link href="/" className="sidebar-header-inner">
-            <Image width={40} height={40} className="nav_logo_img img-fluid mt20" src="/assets/images/header-logo2.png" alt="header-logo.png" />
+            <Image width={40} height={40} className="nav_logo_img img-fluid mt20" src="/assets/images/header-logo.png" alt="header-logo.png" />
             <span className="brand-text">Dream Way</span>
           </Link>
           {/* End .logo */}

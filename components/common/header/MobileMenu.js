@@ -9,7 +9,7 @@ const MobileMenu = () => {
       <div className="mobile-menu">
         <div className="header stylehome1">
           <div className="main_logo_home2 text-center">
-            <Image width={40} height={40} className="nav_logo_img img-fluid mt20" src="/assets/images/header-logo2.png" alt="header-logo2.png" />
+            <Image width={40} height={40} className="nav_logo_img img-fluid mt20" src="/assets/images/header-logo.png" alt="header-logo2.png" />
             <span className="mt20">Dream Way</span>
           </div>
           {/* main_logo_home2 */}

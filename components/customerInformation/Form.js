@@ -2,7 +2,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import { usePlaceOrderMutation } from "../../features/property/propertyApi";
 
 const Form = () => {
@@ -22,7 +21,6 @@ const Form = () => {
       comment: ref.current.comment?.value,
     };
     await placeOrder({ body: queryBody, token: session?.user?.token?.token });
-    toast.warning(data.message);
   };
   useEffect(() => {
     status === "authenticated" || router.push("/login");
@@ -92,6 +90,7 @@ const Form = () => {
                     placeholder="Comments"
                   ></textarea>
                 </div>
+                <p className="text-danger my-2">{data.status === 0 && data.message}</p>
                 <input type="submit" value="Continue" className="btn btn-log w-100 btn-thm" />
               </form>
             </div>

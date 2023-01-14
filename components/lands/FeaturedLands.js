@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import PropertiesCard from "../common/PropertiesCard";
 
 function FeaturedLands({ lands }) {

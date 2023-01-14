@@ -44,7 +44,7 @@ const Header = () => {
 
         <Link href="/" className="navbar_brand float-start dn-smd">
           <Image width={40} height={40} className="logo1 img-fluid" src="/assets/images/header-logo.png" alt="header-logo.png" />
-          <Image width={40} height={40} className="logo2 img-fluid" src="/assets/images/header-logo2.png" alt="header-logo2.png" />
+          <Image width={40} height={40} className="logo2 img-fluid" src="/assets/images/header-logo.png" alt="header-logo.png" />
           <span>Dream Way</span>
         </Link>
         {/* site logo brand */}
