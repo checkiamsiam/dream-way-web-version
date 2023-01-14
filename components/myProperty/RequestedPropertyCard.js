@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import notificationBell from "../../public/assets/images/about/1.jpg";
-function RequestedPropertyCard() {
+function RequestedPropertyCard({property}) {
+  console.log(property);
   return (
     <div className="feat_property list favorite_page">
       <div className="thumb">

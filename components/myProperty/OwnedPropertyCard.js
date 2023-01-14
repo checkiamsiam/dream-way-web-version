@@ -3,7 +3,8 @@ import Link from "next/link";
 import notificationBell from "../../public/assets/images/about/1.jpg";
 import { AiFillFileText } from "react-icons/ai";
 import { RiInstallLine } from "react-icons/ri";
-function OwnedPropertyCard() {
+function OwnedPropertyCard({ property }) {
+  console.log(property);
   return (
     <div className="feat_property list favorite_page">
       <div className="thumb">
@@ -30,12 +31,12 @@ function OwnedPropertyCard() {
       <ul className="view_edit_delete_list mb0 mt35">
         <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Installment">
           <a href="#">
-          <RiInstallLine style={{ color: "#FF5A5F" }} />
+            <RiInstallLine style={{ color: "#FF5A5F" }} />
           </a>
         </li>
         <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Documents">
           <a href="#">
-            <AiFillFileText style={{ color: "#FF5A5F" }} /> 
+            <AiFillFileText style={{ color: "#FF5A5F" }} />
           </a>
         </li>
       </ul>
