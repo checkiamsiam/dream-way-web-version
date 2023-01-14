@@ -25,7 +25,9 @@ function DetailContent({ flat }) {
             <button onClick={() => addToCart({ body: queryBody, token: session?.user?.token?.token })} className="btn btn-lg btn-yellow rounded-2">
               Add To Cart
             </button>
-            <button className="btn btn-lg btn-green rounded-2">Place Order</button>
+            <button onClick={() => router.push("/customer-information")} className="btn btn-lg btn-green rounded-2">
+              Place Order
+            </button>
           </div>
         </div>
         <h4 className="mb30">Description</h4>

@@ -1,16 +1,17 @@
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import { useRegisterVerificationMutation } from "../../features/user/userApi";
 
 const Form = () => {
   const ref = useRef();
+  const { data: session, status } = useSession();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // main
   };
-
+  useEffect(() => {
+    status === "authenticated" || router.push("/login");
+  }, [status]);
   return (
     <section className="our-log bgc-fa mt85">
       <div className="container">
@@ -24,7 +25,14 @@ const Form = () => {
                 </div>
 
                 <div className="form-group input-group ">
-                  <input type="text" name="name" className="form-control" required placeholder="Your Name" />
+                  <input
+                    type="text"
+                    name="name"
+                    defaultValue={session?.user?.token?.name}
+                    className="form-control"
+                    required
+                    placeholder="Your Name"
+                  />
                   <div className="input-group-prepend">
                     <div className="input-group-text">
                       <i className="flaticon-user"></i>
@@ -32,7 +40,14 @@ const Form = () => {
                   </div>
                 </div>
                 <div className="form-group input-group ">
-                  <input type="number" name="phone" className="form-control" required placeholder="Your Phone" />
+                  <input
+                    type="number"
+                    name="phone"
+                    defaultValue={session?.user?.token?.phone}
+                    className="form-control"
+                    required
+                    placeholder="Your Phone"
+                  />
                   <div className="input-group-prepend">
                     <div className="input-group-text">
                       <i className="flaticon-telephone"></i>
@@ -42,7 +57,7 @@ const Form = () => {
                 {/* End .form-group */}
 
                 <div className="form-group input-group  ">
-                  <input type="email" name="email" className="form-control" required placeholder="Email" />
+                  <input type="email" name="email" defaultValue={session?.user?.token?.email} className="form-control" required placeholder="Email" />
                   <div className="input-group-prepend">
                     <div className="input-group-text">
                       <i className="fa fa-envelope-o"></i>
