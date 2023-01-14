@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import notificationBell from "../../public/assets/fonts/image/bell.png";
 
-const NoticeCard = () => {
+const NoticeCard = ({ notice }) => {
   return (
     <div className="feat_property list favorite_page row">
       <div className="d-flex justify-content-center align-items-center gap-3 col-md-2 ">
@@ -14,12 +14,9 @@ const NoticeCard = () => {
         <div className="tc_content">
           <h4>
             {" "}
-            <Link href="">This is a hight priority notice</Link>
+            <Link href="">{notice?.title}</Link>
           </h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus dicta in quo? Neque necessitatibus explicabo rerum laboriosam itaque,
-            deleniti adipisci.
-          </p>
+          <p>{notice?.body}</p>
         </div>
       </div>
     </div>
