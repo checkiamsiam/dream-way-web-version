@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import PropertyDescriptions from "../../common/PropertyDescriptions";
 import PropertyDetails from "../../common/PropertyDetails";
+import parse from "html-react-parser";
 
 function DetailContent({ land }) {
   const router = useRouter();
@@ -28,8 +29,12 @@ function DetailContent({ land }) {
             <button className="btn btn-lg btn-green rounded-2">Place Order</button>
           </div>
         </div>
-        <h4 className="mb30">Description</h4>
-        <PropertyDescriptions />
+        {land?.details && (
+          <>
+            <h4 className="mb30">Description</h4>
+            {parse(land?.details)}
+          </>
+        )}
       </div>
       <div className="additional_details">
         <div className="row">

@@ -6,6 +6,7 @@ import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import { setPropertyTarget } from "../../../features/property/propertySlice";
 import PropertyDescriptions from "../../common/PropertyDescriptions";
 import PropertyDetails from "../../common/PropertyDetails";
+import parse from "html-react-parser";
 
 function DetailContent({ flat }) {
   const router = useRouter();
@@ -38,8 +39,13 @@ function DetailContent({ flat }) {
             </button>
           </div>
         </div>
-        <h4 className="mb30">Description</h4>
-        <PropertyDescriptions />
+        {flat?.details && (
+          <>
+            {" "}
+            <h4 className="mb30">Description</h4>
+            {parse(flat?.details)}{" "}
+          </>
+        )}
       </div>
       <div className="additional_details">
         <div className="row">
