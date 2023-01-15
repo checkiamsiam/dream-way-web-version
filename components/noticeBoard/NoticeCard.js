@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import notificationBell from "../../public/assets/fonts/image/bell.png";
+import parse from "html-react-parser";
 
 const NoticeCard = ({ notice }) => {
   return (
@@ -16,7 +17,7 @@ const NoticeCard = ({ notice }) => {
             {" "}
             <Link href="">{notice?.title}</Link>
           </h4>
-          <p>{notice?.body}</p>
+          <p>{parse(notice?.body)}</p>
         </div>
       </div>
     </div>
