@@ -10,7 +10,6 @@ import axiosApi from "../features/axiosInstance";
 function MyProperty({ myProperty, myRequests }) {
   const [propertyType, setPropertyType] = useState("owned");
   const { setVisible, bindings } = useModal();
-  console.log(myProperty, myRequests);
 
   return (
     <>

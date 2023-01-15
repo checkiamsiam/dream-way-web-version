@@ -2,17 +2,18 @@ import { Modal, Button, Text } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 
 export default function InstallmentModal({ bindings }) {
-  const { installmentDataForModal: property } = useSelector((state) => state.property);
+  const { installmentDataForModal } = useSelector((state) => state.property);
+  console.log(installmentDataForModal);
   return (
     <>
       <Modal scroll closeButton width="600px" aria-labelledby="modal-title" aria-describedby="modal-description" {...bindings}>
         <Modal.Header>
           <Text id="modal-title" size={18}>
-            Installment for {property?.property?.title}
+            Installment for {installmentDataForModal?.property?.title}
           </Text>
         </Modal.Header>
         <Modal.Body>
-          {property?.installments.map((installment) => (
+          {installmentDataForModal?.installments?.map((installment) => (
             <>
               <div>
                 <p>
