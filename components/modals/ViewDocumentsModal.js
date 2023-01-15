@@ -18,7 +18,7 @@ export default function ViewDocuments({ visibleDocuments, setVisibleDocuments })
           </Text>
         </Modal.Header>
         <Modal.Body>
-          <div style={{ backgroundColor: "#E9EBEC" }} className="py-4">
+          <div style={{ backgroundColor: "#E9EBEC", borderRadius: "5px" }} className="pt-5">
             <div className="h85 w-100 d-flex justify-content-center align-items-center">
               <AiFillFileText style={{ color: "#FF5A5F", fontSize: "40px" }} />
             </div>
@@ -27,8 +27,8 @@ export default function ViewDocuments({ visibleDocuments, setVisibleDocuments })
                 href="https://dreamwayapi.sajidurapp.xyz/"
                 rel="noreferrer"
                 target="_blank"
-                className="p-2 rounded-lg"
-                style={{ backgroundColor: "white" }}
+                className="p-2"
+                style={{ backgroundColor: "white", borderRadius: "5px" }}
               >
                 <FaDownload style={{ color: "#FF5A5F" }} />
               </a>
