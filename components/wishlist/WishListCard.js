@@ -28,9 +28,6 @@ function WishListCard({ item }) {
   };
 
   useEffect(() => {
-    status !== "authenticated" || router.push("/login");
-  }, [status, router]);
-  useEffect(() => {
     isSuccess && router.push("/my-property");
   }, [isSuccess, isError, data, router]);
 
