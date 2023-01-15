@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   target: {},
+  installmentDataForModal: {},
 };
 
 export const propertySlice = createSlice({
@@ -11,9 +12,12 @@ export const propertySlice = createSlice({
     setPropertyTarget: (state, action) => {
       state.target = action.payload;
     },
+    setInstallmentProperty: (state, action) => {
+      state.installmentDataForModal = action.payload;
+    },
   },
 });
 
-export const { setPropertyTarget } = propertySlice.actions;
+export const { setPropertyTarget , setInstallmentProperty } = propertySlice.actions;
 
 export default propertySlice.reducer;

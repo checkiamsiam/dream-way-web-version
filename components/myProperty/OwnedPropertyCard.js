@@ -4,7 +4,14 @@ import notificationBell from "../../public/assets/images/about/1.jpg";
 import { AiFillFileText } from "react-icons/ai";
 import { RiInstallLine } from "react-icons/ri";
 import { convertStringToArray } from "../common/utilityFunctions";
-function OwnedPropertyCard({ property }) {
+import { useDispatch } from "react-redux";
+import { setInstallmentProperty } from "../../features/property/propertySlice";
+function OwnedPropertyCard({ property, setVisibleModal }) {
+  const dispatch = useDispatch();
+  const handleOpenModal = () => {
+    dispatch(setInstallmentProperty(property));
+    setVisibleModal(true);
+  };
   console.log(property);
   return (
     <div className="feat_property list favorite_page">
@@ -33,7 +40,7 @@ function OwnedPropertyCard({ property }) {
       {/* End details */}
 
       <ul className="view_edit_delete_list mb0 mt35">
-        <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Installment">
+        <li onClick={handleOpenModal} className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Installment">
           <a href="#">
             <RiInstallLine style={{ color: "#FF5A5F" }} />
           </a>

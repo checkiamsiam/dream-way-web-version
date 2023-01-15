@@ -1,12 +1,15 @@
+import { useModal } from "@nextui-org/react";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
 import Seo from "../components/common/seo";
+import InstallmentModal from "../components/installmentModal";
 import OwnedPropertyCard from "../components/myProperty/OwnedPropertyCard";
 import RequestedPropertyCard from "../components/myProperty/RequestedPropertyCard";
 import axiosApi from "../features/axiosInstance";
 
 function MyProperty({ myProperty, myRequests }) {
   const [propertyType, setPropertyType] = useState("owned");
+  const { setVisible, bindings } = useModal();
   console.log(myProperty, myRequests);
 
   return (
@@ -43,13 +46,16 @@ function MyProperty({ myProperty, myRequests }) {
             <div className="my_dashboard_review ">
               <div className="favorite_item_list">
                 {propertyType === "owned"
-                  ? myProperty !== [] && myProperty.map((property) => <OwnedPropertyCard key={property.id} property={property} />)
+                  ? myProperty !== [] &&
+                    myProperty.map((property) => <OwnedPropertyCard key={property.id} setVisibleModal={setVisible} property={property} />)
                   : myRequests !== [] && myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <InstallmentModal bindings={bindings} />
     </>
   );
 }
