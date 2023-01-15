@@ -7,9 +7,9 @@ import Header from "../components/common/Header";
 import MobileMenu from "../components/common/header/MobileMenu";
 import ScrollToTop from "../components/common/ScrollTop";
 import Seo from "../components/common/seo";
+import ModalUniversal from "../components/modals/ModalUniversal";
 import { store } from "../features/store";
 import "../styles/index.scss";
-import ModalUniversal from "../components/common/ModalUniversal";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");

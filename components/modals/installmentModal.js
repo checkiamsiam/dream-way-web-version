@@ -16,22 +16,22 @@ export default function InstallmentModal({ bindings }) {
             <>
               <div>
                 <p>
-                  <span>Installment No</span>: <span>{installment?.installment_no}</span>
+                  <span className="font-weight-bold">Installment No :</span> <span>{installment?.installment_no}</span>
                 </p>
                 <p>
-                  <span>Date And Time</span>: <span>{installment?.date}</span>
+                  <span className="font-weight-bold">Date And Time :</span> <span>{installment?.date}</span>
                 </p>
                 <p>
-                  <span>Amount</span>: <span>{installment?.ammount}</span>
+                  <span className="font-weight-bold">Amount :</span> <span>{installment?.ammount}</span>
                 </p>
                 <p>
-                  <span>Payment Method</span>: <span>{installment?.pay_by}</span>
+                  <span className="font-weight-bold">Payment Method :</span> <span>{installment?.pay_by}</span>
                 </p>
                 <p>
-                  <span>Comments</span>: <span>{installment?.comments}</span>
+                  <span className="font-weight-bold">Comments :</span> <span>{installment?.comments}</span>
                 </p>
+                <hr />
               </div>
-              <hr />
             </>
           ))}
         </Modal.Body>

@@ -2,13 +2,15 @@ import { useModal } from "@nextui-org/react";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
 import Seo from "../components/common/seo";
-import InstallmentModal from "../components/installmentModal";
+import InstallmentModal from "../components/modals/installmentModal";
+import ViewDocuments from "../components/modals/ViewDocumentsModal";
 import OwnedPropertyCard from "../components/myProperty/OwnedPropertyCard";
 import RequestedPropertyCard from "../components/myProperty/RequestedPropertyCard";
 import axiosApi from "../features/axiosInstance";
 
 function MyProperty({ myProperty, myRequests }) {
   const [propertyType, setPropertyType] = useState("owned");
+  const [visibleDocuments, setVisibleDocuments] = useState(false);
   const { setVisible, bindings } = useModal();
 
   return (
@@ -53,7 +55,7 @@ function MyProperty({ myProperty, myRequests }) {
           </div>
         </div>
       </div>
-
+      <ViewDocuments visibleDocuments={visibleDocuments} setVisibleDocuments={setVisibleDocuments} />
       <InstallmentModal bindings={bindings} />
     </>
   );
