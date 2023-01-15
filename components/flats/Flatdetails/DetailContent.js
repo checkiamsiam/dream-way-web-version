@@ -16,7 +16,7 @@ function DetailContent({ flat }) {
     propertyID: router.query.flatId || router.query.landId,
     propertyType: (router.query.flatId && 2) || (router.query.landId && 1),
   };
-
+  console.log(flat);
   const handlePlaceOrder = () => {
     dispatch(setPropertyTarget(queryBody));
     router.push("/customer-information");

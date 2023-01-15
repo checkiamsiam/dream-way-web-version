@@ -3,6 +3,7 @@ import NoticeCard from "../components/noticeBoard/NoticeCard";
 import axiosApi from "../features/axiosInstance";
 
 function NoticeBoard({ notices }) {
+  console.log(notices);
   return (
     <>
       <Seo pageTitle="Notice" />
