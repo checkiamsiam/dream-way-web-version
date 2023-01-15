@@ -12,7 +12,6 @@ function OwnedPropertyCard({ property, setVisibleModal }) {
     dispatch(setInstallmentProperty(property));
     setVisibleModal(true);
   };
-  console.log(property.installments);
   return (
     <div className="feat_property list favorite_page">
       <div className="thumb">

@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 export default function InstallmentModal({ bindings }) {
   const { installmentDataForModal } = useSelector((state) => state.property);
-  console.log(installmentDataForModal);
   return (
     <>
       <Modal scroll closeButton width="600px" aria-labelledby="modal-title" aria-describedby="modal-description" {...bindings}>
