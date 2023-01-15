@@ -6,9 +6,13 @@ import { RiInstallLine } from "react-icons/ri";
 import { convertStringToArray } from "../common/utilityFunctions";
 import { useDispatch } from "react-redux";
 import { setInstallmentProperty } from "../../features/property/propertySlice";
-function OwnedPropertyCard({ property, setVisibleModal }) {
+function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
   const dispatch = useDispatch();
-  const handleOpenModal = () => {
+  const handleOpenDocumentsModal = () => {
+    dispatch(setInstallmentProperty(property));
+    setVisibleDocuments(true);
+  };
+  const handleOpenInstallmentModal = () => {
     dispatch(setInstallmentProperty(property));
     setVisibleModal(true);
   };
@@ -39,12 +43,12 @@ function OwnedPropertyCard({ property, setVisibleModal }) {
       {/* End details */}
 
       <ul className="view_edit_delete_list mb0 mt35">
-        <li onClick={handleOpenModal} className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Installment">
+        <li onClick={handleOpenInstallmentModal} className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Installment">
           <a href="#">
             <RiInstallLine style={{ color: "#FF5A5F" }} />
           </a>
         </li>
-        <li className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Documents">
+        <li onClick={handleOpenDocumentsModal} className="list-inline-item" data-toggle="tooltip" data-placement="top" title="Documents">
           <a href="#">
             <AiFillFileText style={{ color: "#FF5A5F" }} />
           </a>
