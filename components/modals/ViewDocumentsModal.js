@@ -1,7 +1,10 @@
 import React from "react";
-import { Modal,  Text } from "@nextui-org/react";
+import { Modal, Text } from "@nextui-org/react";
+import { useSelector } from "react-redux";
+import { AiFillFileText } from "react-icons/ai";
 
-export default function ViewDocuments({visibleDocuments, setVisibleDocuments}) {
+export default function ViewDocuments({ visibleDocuments, setVisibleDocuments }) {
+  const { installmentDataForModal } = useSelector((state) => state.property);
   const closeHandler = () => {
     setVisibleDocuments(false);
   };
@@ -14,7 +17,9 @@ export default function ViewDocuments({visibleDocuments, setVisibleDocuments}) {
           </Text>
         </Modal.Header>
         <Modal.Body>
-          sdfsdf
+          <div className="h85 w-100 d-flex justify-content-center align-items-center">
+            <AiFillFileText style={{ color: "#FF5A5F" }} />
+          </div>
         </Modal.Body>
       </Modal>
     </>
