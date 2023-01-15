@@ -12,7 +12,7 @@ export const userApi = api.injectEndpoints({
             async onQueryStarted(query, { queryFulfilled, dispatch }) {
                 try {
                     const result = await queryFulfilled;
-                    console.log(result);
+
                     toast.success(result.msg, {
                         position: 'top-center',
                         autoClose: 5000,
@@ -46,4 +46,8 @@ export const userApi = api.injectEndpoints({
     }),
 });
 
-export const { useRegisterMutation, useLoginMutation , useRegisterVerificationMutation } = userApi;
+export const {
+    useRegisterMutation,
+    useLoginMutation,
+    useRegisterVerificationMutation,
+} = userApi;
