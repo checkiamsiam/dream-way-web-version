@@ -32,6 +32,8 @@ function RequestedPropertyCard({ property }) {
                         convertStringToArray(property?.property?.img_url)[0]
                     }`}
                     alt="fp1.jpg"
+                    width={360}
+                    height={240}
                 />
             </div>
             {/* End .thumb */}
