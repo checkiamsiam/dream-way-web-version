@@ -1,3 +1,4 @@
+import { getSession } from 'next-auth/react';
 import Seo from '../components/common/seo';
 import BreadCrumbBanner from '../components/login/BreadCrumbBanner';
 import Form from '../components/login/Form';
@@ -14,21 +15,19 @@ function Login() {
 
 export default Login;
 
-// export async function getServerSideProps(context) {
-//     const session = await getSession(context);
+export async function getServerSideProps(context) {
+    const session = await getSession(context);
 
-//
+    if (session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        };
+    }
 
-//     if (session) {
-//         return {
-//             redirect: {
-//                 destination: '/',
-//                 permanent: false,
-//             },
-//         };
-//     }
-
-//     return {
-//         props: {},
-//     };
-// }
+    return {
+        props: {},
+    };
+}
