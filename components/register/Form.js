@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { useRegisterMutation } from "../../features/user/userApi";
 import { setEmailForRegisterVerification } from "../../features/user/userSlice";
 
@@ -24,9 +25,19 @@ const Form = () => {
     };
     dispatch(setEmailForRegisterVerification(data.email));
     await register(data);
-    isError && alert(error?.data?.msg);
   };
 
+  error &&
+    toast.error(error?.data?.msg, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   useEffect(() => {
     isSuccess && router.push("/email-verification");
   }, [isSuccess, error, data, router]);
