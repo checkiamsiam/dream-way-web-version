@@ -9,7 +9,7 @@ import { setEmailForRegisterVerification } from "../../features/user/userSlice";
 const Form = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [register, { isSuccess, error, data, isError }] = useRegisterMutation();
+  const [register, { isSuccess, error, data }] = useRegisterMutation();
   console.log(error);
   const ref = useRef();
   const handleSubmit = async (e) => {
@@ -23,8 +23,8 @@ const Form = () => {
       gender: ref.current.gender?.value,
       dob: ref.current.dob?.value,
     };
-    dispatch(setEmailForRegisterVerification(data.email));
     await register(data);
+    dispatch(setEmailForRegisterVerification(data.email));
   };
 
   error &&
@@ -40,7 +40,7 @@ const Form = () => {
     });
   useEffect(() => {
     isSuccess && router.push("/email-verification");
-  }, [isSuccess, error, data, router]);
+  }, [isSuccess, router]);
 
   return (
     <section className="our-log bgc-fa">
