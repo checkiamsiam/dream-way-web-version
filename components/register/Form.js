@@ -11,8 +11,7 @@ const Form = () => {
   const [register, { isSuccess, error, data }] = useRegisterMutation();
 
   const ref = useRef();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const data = {
       name: ref.current.name?.value,
       address: ref.current.address?.value,
@@ -36,7 +35,7 @@ const Form = () => {
         <div className="row  ">
           <div className="col-sm-12 col-lg-6 offset-lg-3">
             <div className="login_form  inner_page">
-              <form ref={ref} onSubmit={handleSubmit}>
+              <form ref={ref} >
                 <div className="heading text-center">
                   <h3>Register to your account</h3>
                   <p className="text-center">
@@ -111,7 +110,7 @@ const Form = () => {
                 </div>
                 <p className="text-danger my-2">{error && error?.data?.message}</p>
 
-                <input type="submit" value="Submit" className="btn btn-log w-100 btn-thm" />
+                <input onClick={handleSubmit} type="submit" value="Submit" className="btn btn-log w-100 btn-thm" />
               </form>
             </div>
           </div>
