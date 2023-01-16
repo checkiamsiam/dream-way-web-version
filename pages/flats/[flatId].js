@@ -4,8 +4,6 @@ import DetailContent from "../../components/flats/Flatdetails/DetailContent";
 import FlatDetailBannerGellary from "../../components/flats/Flatdetails/FlatDetailBannerGellary";
 import axiosApi from "../../features/axiosInstance";
 
-
-
 function FlatDetails({ flat }) {
   return (
     <>
