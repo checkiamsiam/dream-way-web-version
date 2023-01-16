@@ -1,8 +1,12 @@
+import dynamic from "next/dynamic";
 import Seo from "../../components/common/seo";
 import DetailContent from "../../components/flats/Flatdetails/DetailContent";
 import FlatDetailBannerGellary from "../../components/flats/Flatdetails/FlatDetailBannerGellary";
-import FlatLocationMap from "../../components/flats/Flatdetails/flatLocationMap";
 import axiosApi from "../../features/axiosInstance";
+
+const FlatLocationMap = dynamic(() => import("../../components/flats/Flatdetails/flatLocationMap"), {
+  ssr: false,
+});
 
 function FlatDetails({ flat }) {
   return (
