@@ -8,7 +8,7 @@ import { setEmailForRegisterVerification } from "../../features/user/userSlice";
 const Form = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [register, { isSuccess, isError, data }] = useRegisterMutation();
+  const [register, { isSuccess, error, data }] = useRegisterMutation();
 
   const ref = useRef();
   const handleSubmit = async (e) => {
@@ -28,7 +28,7 @@ const Form = () => {
 
   useEffect(() => {
     isSuccess && router.push("/email-verification");
-  }, [isSuccess, isError, data, router]);
+  }, [isSuccess, error, data, router]);
 
   return (
     <section className="our-log bgc-fa">
@@ -109,7 +109,7 @@ const Form = () => {
                 <div className="form-group input-group  ">
                   <input type="date" name="dob" className="form-control" required placeholder="Date of Birth" />
                 </div>
-                {/* End .form-group */}
+                <p className="text-danger my-2">{error && error?.data?.message}</p>
 
                 <input type="submit" value="Submit" className="btn btn-log w-100 btn-thm" />
               </form>
