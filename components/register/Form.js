@@ -9,9 +9,10 @@ const Form = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [register, { isSuccess, error, data }] = useRegisterMutation();
-
+  console.log(error);
   const ref = useRef();
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const data = {
       name: ref.current.name?.value,
       address: ref.current.address?.value,
@@ -25,6 +26,8 @@ const Form = () => {
     await register(data);
   };
 
+  error && alert(error?.data?.message);
+
   useEffect(() => {
     isSuccess && router.push("/email-verification");
   }, [isSuccess, error, data, router]);
@@ -35,7 +38,7 @@ const Form = () => {
         <div className="row  ">
           <div className="col-sm-12 col-lg-6 offset-lg-3">
             <div className="login_form  inner_page">
-              <form ref={ref} >
+              <form ref={ref} onSubmit={handleSubmit}>
                 <div className="heading text-center">
                   <h3>Register to your account</h3>
                   <p className="text-center">
@@ -110,7 +113,7 @@ const Form = () => {
                 </div>
                 <p className="text-danger my-2">{error && error?.data?.message}</p>
 
-                <input onClick={handleSubmit} type="submit" value="Submit" className="btn btn-log w-100 btn-thm" />
+                <input type="submit" value="Submit" className="btn btn-log w-100 btn-thm" />
               </form>
             </div>
           </div>

@@ -46,10 +46,29 @@ function MyProperty({ myProperty, myRequests }) {
           <div className="col-lg-12">
             <div className="my_dashboard_review ">
               <div className="favorite_item_list">
-                {propertyType === "owned"
-                  ? myProperty !== [] &&
-                    myProperty.map((property) => <OwnedPropertyCard key={property.id} setVisibleModal={setVisible} setVisibleDocuments={setVisibleDocuments} property={property} />)
-                  : myRequests !== [] && myRequests.map((property) => <RequestedPropertyCard key={property.id} property={property} />)}
+                {propertyType === "owned" &&
+                  myProperty.length > 0 &&
+                  myProperty?.map((property) => (
+                    <OwnedPropertyCard
+                      key={property?.id}
+                      setVisibleModal={setVisible}
+                      setVisibleDocuments={setVisibleDocuments}
+                      property={property}
+                    />
+                  ))}
+                {propertyType === "requested" &&
+                  myRequests.length > 0 &&
+                  myRequests?.map((property) => <RequestedPropertyCard key={property?.id} property={property} />)}
+                {/* {propertyType === "owned"
+                  ? myProperty?.map((property) => (
+                      <OwnedPropertyCard
+                        key={property?.id}
+                        setVisibleModal={setVisible}
+                        setVisibleDocuments={setVisibleDocuments}
+                        property={property}
+                      />
+                    ))
+                  : myRequests?.map((property) => <RequestedPropertyCard key={property?.id} property={property} />)} */}
               </div>
             </div>
           </div>
