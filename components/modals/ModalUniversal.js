@@ -19,6 +19,9 @@ function ModalUniversal() {
                 aria-labelledby="modal-title"
                 open={visible}
                 onClose={closeHandler}
+                style={{
+                    background: ` linear-gradient(to bottom, #4bcaf5, #ffffff) `,
+                }}
             >
                 <Modal.Body
                     style={{
