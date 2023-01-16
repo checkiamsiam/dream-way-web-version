@@ -25,7 +25,6 @@ export const userApi = api.injectEndpoints({
                     });
                 } catch (error) {
                     console.log(error);
-                    alert(error.message);
                 }
             },
         }),
