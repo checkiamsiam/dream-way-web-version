@@ -1,6 +1,7 @@
 import Seo from "../../components/common/seo";
 import DetailContent from "../../components/flats/Flatdetails/DetailContent";
 import FlatDetailBannerGellary from "../../components/flats/Flatdetails/FlatDetailBannerGellary";
+import FlatLocationMap from "../../components/flats/Flatdetails/flatLocationMap";
 import axiosApi from "../../features/axiosInstance";
 
 function FlatDetails({ flat }) {
@@ -8,7 +9,8 @@ function FlatDetails({ flat }) {
     <>
       <Seo pageTitle="Flat Details" />
       <FlatDetailBannerGellary flat={flat} />
-      <DetailContent flat={flat}/>
+      <DetailContent flat={flat} />
+      <FlatLocationMap flat={flat} />
     </>
   );
 }
