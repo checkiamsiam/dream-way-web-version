@@ -8,8 +8,8 @@ import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import { setPropertyTarget } from "../../../features/property/propertySlice";
 import PropertyDetails from "../../common/PropertyDetails";
 const FlatLocationMap = dynamic(() => import("./flatLocationMap"), {
-  ssr: false,
-});
+    ssr: false,
+  });
 
 function DetailContent({ flat }) {
   const router = useRouter();
@@ -66,7 +66,7 @@ function DetailContent({ flat }) {
             <h4 className="mb15">Property Details</h4>
           </div>
           <PropertyDetails propertyDetail={flat} />
-          <FlatLocationMap flat={flat} />
+          <FlatLocationMap />
         </div>
       </div>
     </div>
