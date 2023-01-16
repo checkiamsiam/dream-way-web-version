@@ -1,15 +1,15 @@
 import parse from "html-react-parser";
 import { useSession } from "next-auth/react";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import { setPropertyTarget } from "../../../features/property/propertySlice";
 import PropertyDetails from "../../common/PropertyDetails";
-const FlatLocationMap = dynamic(() => import("./flatLocationMap"), {
-    ssr: false,
-  });
+// const FlatLocationMap = dynamic(() => import("./flatLocationMap"), {
+//     ssr: false,
+//   });
 
 function DetailContent({ flat }) {
   const router = useRouter();
@@ -66,7 +66,18 @@ function DetailContent({ flat }) {
             <h4 className="mb15">Property Details</h4>
           </div>
           <PropertyDetails propertyDetail={flat} />
-          <FlatLocationMap />
+          {/* <FlatLocationMap /> */}
+          <div className="gmap_canvas pe-none">
+            <iframe
+              width="300"
+              height="170"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src={`https://maps.google.com/maps?q=${flat?.lt},${flat?.ln}8&hl=es&z=14&amp;output=embed`}
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>

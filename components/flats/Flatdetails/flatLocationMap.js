@@ -6,24 +6,26 @@ import { useEffect, useState } from "react";
 import axiosApi from "../../../features/axiosInstance";
 
 function FlatLocationMap() {
-  // const [flat, setFlat] = useState([]);
-  // const router = useRouter();
-  // const position = [flat?.lt, flat?.ln];
-  // console.log(flat);
-  // useEffect(() => {
-  //   axiosApi.get(`/api/flat/${router.query.flatId}`).then((data) => setFlat(data?.response[0]));
-  // }, [router]);
+  const [flat, setFlat] = useState([]);
+  const router = useRouter();
+  const position = [flat?.lt, flat?.ln];
+  console.log(flat);
+  useEffect(() => {
+    axiosApi.get(`/api/flat/${router.query.flatId}`).then((data) => setFlat(data?.response[0]));
+  }, [router]);
   return (
     <>
-      <MapContainer center={[23.7664872, 90.3859918]} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[23.7664872, 90.3859918]}>
-          {/* <Popup>{flat?.address}</Popup> */}
-        </Marker>
-      </MapContainer>
+      {flat.length > 0 && (
+        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={position}>
+            <Popup>{flat?.address}</Popup>
+          </Marker>
+        </MapContainer>
+      )}
     </>
   );
 }
