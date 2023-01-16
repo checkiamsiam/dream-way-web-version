@@ -8,7 +8,7 @@ import { setEmailForRegisterVerification } from "../../features/user/userSlice";
 const Form = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [register, { isSuccess, error, data }] = useRegisterMutation();
+  const [register, { isSuccess, error, data, isError }] = useRegisterMutation();
   console.log(error);
   const ref = useRef();
   const handleSubmit = async (e) => {
@@ -24,9 +24,8 @@ const Form = () => {
     };
     dispatch(setEmailForRegisterVerification(data.email));
     await register(data);
+    isError && alert(error?.data?.msg);
   };
-
-  error && alert(error?.data?.message);
 
   useEffect(() => {
     isSuccess && router.push("/email-verification");
@@ -111,7 +110,7 @@ const Form = () => {
                 <div className="form-group input-group  ">
                   <input type="date" name="dob" className="form-control" required placeholder="Date of Birth" />
                 </div>
-                <p className="text-danger my-2">{error && error?.data?.message}</p>
+                <p className="text-danger my-2">{error && error?.data?.msg}</p>
 
                 <input type="submit" value="Submit" className="btn btn-log w-100 btn-thm" />
               </form>
