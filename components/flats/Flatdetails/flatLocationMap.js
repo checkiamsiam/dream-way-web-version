@@ -1,12 +1,12 @@
 "use client";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 function FlatLocationMap({ flat }) {
   const position = [flat?.lt, flat?.ln];
   console.log(flat);
   return (
     <>
-      (
       <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -16,7 +16,6 @@ function FlatLocationMap({ flat }) {
           <Popup>{flat?.address}</Popup>
         </Marker>
       </MapContainer>
-      )
     </>
   );
 }
