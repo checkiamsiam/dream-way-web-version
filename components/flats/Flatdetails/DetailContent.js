@@ -66,7 +66,7 @@ function DetailContent({ flat }) {
             <h4 className="mb15">Property Details</h4>
           </div>
           <PropertyDetails propertyDetail={flat} />
-          <FlatLocationMap />
+          <FlatLocationMap flat={flat} />
         </div>
       </div>
     </div>
