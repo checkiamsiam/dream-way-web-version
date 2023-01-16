@@ -21,7 +21,7 @@ function FlatLocationMap() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={[23.7664872, 90.3859918]}>
-          <Popup>{flat?.address}</Popup>
+          {/* <Popup>{flat?.address}</Popup> */}
         </Marker>
       </MapContainer>
     </>
