@@ -70,7 +70,7 @@ function DetailContent({ land }) {
               scrolling="no"
               marginheight="0"
               marginwidth="0"
-              src={`https://maps.google.com/maps?q=23.7664872,90.3859918&hl=es&z=14&amp;output=embed`}
+              src="https://maps.google.com/maps?q=23.7664872,90.3859918&hl=es&z=14&amp;output=embed"
             ></iframe>
           </div>
         </div>
