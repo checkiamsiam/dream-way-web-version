@@ -7,7 +7,7 @@ import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import { setPropertyTarget } from "../../../features/property/propertySlice";
 import PropertyDetails from "../../common/PropertyDetails";
 
-function DetailContent({ land }) {
+function DetailContent({ land, landLocation }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const { data: session, status } = useSession();
@@ -62,17 +62,7 @@ function DetailContent({ land }) {
             <h4 className="mb15">Property Details</h4>
           </div>
           <PropertyDetails propertyDetail={land} />
-          <div className="gmap_canvas pe-none">
-            <iframe
-              width="300"
-              height="170"
-              frameborder="0"
-              scrolling="no"
-              marginheight="0"
-              marginwidth="0"
-              src="https://maps.google.com/maps?q=23.7664872,90.3859918&hl=es&z=14&amp;output=embed"
-            ></iframe>
-          </div>
+          <div className="gmap_canvas pe-none">{parse(landLocation)}</div>
         </div>
       </div>
     </div>
