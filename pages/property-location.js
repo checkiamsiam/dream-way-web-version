@@ -1,14 +1,9 @@
-import "leaflet/dist/leaflet.css";
 import { useSelector } from "react-redux";
-import dynamic from "next/dynamic";
+import parse from "html-react-parser";
 import Seo from "../components/common/seo";
-const LocationMap = dynamic(() => import("../components/common/locationMap"), {
-  ssr: false,
-});
 
 function PropertyLocation() {
-  // const { locationPageData } = useSelector((state) => state.property);
-  // console.log(locationPageData);
+  const { locationPageData } = useSelector((state) => state.property);
   return (
     <>
       <Seo pageTitle="Property Location" />
@@ -23,7 +18,7 @@ function PropertyLocation() {
 
           <div className="col-lg-12">
             <div className="h600" id="map-canvas">
-              <LocationMap />
+              <div className="gmap_canvas pe-none">{parse(locationPageData?.iframeLocation)}</div>
             </div>
           </div>
         </div>

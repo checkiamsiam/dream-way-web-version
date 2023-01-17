@@ -22,8 +22,11 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
     dispatch(
       setLocationPageData({
         propertyName: property?.property?.title,
-        lt: property?.property?.lt,
-        ln: property?.property?.ln,
+        iframeLocation: `<iframe
+        title="map"
+        className="gmap_iframe"
+        src="https://maps.google.com/maps?q=${property?.property?.lt},${property?.property?.ln}&hl=es&z=14&amp;output=embed"
+      ></iframe>`,
       })
     );
     router.push("/property-location");
