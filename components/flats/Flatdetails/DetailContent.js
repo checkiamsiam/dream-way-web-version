@@ -11,7 +11,7 @@ import PropertyDetails from "../../common/PropertyDetails";
 //     ssr: false,
 //   });
 
-function DetailContent({ flat }) {
+function DetailContent({ flat, flatLocation }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const { data: session, status } = useSession();
@@ -67,17 +67,7 @@ function DetailContent({ flat }) {
           </div>
           <PropertyDetails propertyDetail={flat} />
           {/* <FlatLocationMap /> */}
-          <div className="gmap_canvas pe-none">
-            <iframe
-              width="300"
-              height="170"
-              frameborder="0"
-              scrolling="no"
-              marginheight="0"
-              marginwidth="0"
-              src="https://maps.google.com/maps?q=23.7664872,90.3859918&hl=es&z=14&amp;output=embed"
-            ></iframe>
-          </div>
+          <div className="gmap_canvas pe-none">{parse(flatLocation)}</div>
         </div>
       </div>
     </div>
