@@ -30,12 +30,12 @@ function Contact() {
           <div className="row">
             <div className="col-lg-12">
               <div className="h600" id="map-canvas">
-                <div className="gmap_canvas pe-none">             
-                  {/* <iframe
+                <div className="gmap_canvas pe-none">
+                  <iframe
                     title="map"
                     className="gmap_iframe"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8330786638167!2d90.37454902210467!3d23.753331141541377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8ac20cff015%3A0xff2b5ccc3b603741!2sShukrabad%2C%20Dhaka%201205!5e0!3m2!1sen!2sbd!4v1673583029892!5m2!1sen!2sbd"
-                  ></iframe> */}
+                  ></iframe>
 
                   <Image width={50} height={50} className="location-finder" src="/assets/images/location.png" alt="location" />
                 </div>

@@ -22,12 +22,8 @@ export async function getServerSideProps(cxt) {
     props: {
       land: data?.response[0],
       landLocation: `<iframe
-      width="300"
-      height="170"
-      frameborder="0"
-      scrolling="no"
-      marginheight="0"
-      marginwidth="0"
+      title="map"
+      className="gmap_iframe"
       src="https://maps.google.com/maps?q=${data?.response[0].lt},${data?.response[0].ln}&hl=es&z=14&amp;output=embed"
     ></iframe>`,
     },
