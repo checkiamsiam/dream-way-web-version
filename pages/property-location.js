@@ -7,8 +7,8 @@ const LocationMap = dynamic(() => import("../components/common/locationMap"), {
 });
 
 function PropertyLocation() {
-  const { locationPageData } = useSelector((state) => state.property);
-  console.log(locationPageData);
+  // const { locationPageData } = useSelector((state) => state.property);
+  // console.log(locationPageData);
   return (
     <>
       <Seo pageTitle="Property Location" />
@@ -23,7 +23,7 @@ function PropertyLocation() {
 
           <div className="col-lg-12">
             <div className="h600" id="map-canvas">
-              {locationPageData?.lt && locationPageData?.ln && <LocationMap position={[locationPageData?.lt, locationPageData?.ln]} />}
+              <LocationMap />
             </div>
           </div>
         </div>
