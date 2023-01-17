@@ -17,7 +17,7 @@ export const propertySlice = createSlice({
       state.installmentDataForModal = action.payload;
     },
     setLocationPageData: (state, action) => {
-      state.installmentDataForModal = action.payload;
+      state.locationPageData = action.payload;
     },
   },
 });
