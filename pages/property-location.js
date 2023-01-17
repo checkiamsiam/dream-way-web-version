@@ -1,3 +1,5 @@
+"use client";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import { useSelector } from "react-redux";
 import Seo from "../components/common/seo";
 
@@ -17,13 +19,13 @@ function PropertyLocation() {
 
           <div className="col-lg-12">
             <div className="h600" id="map-canvas">
-              <div className="gmap_canvas pe-none">
-                <iframe
-                  title="map"
-                  className="gmap_iframe"
-                  src={`https://maps.google.com/maps?q=${locationPageData?.lt},${locationPageData?.ln}&hl=es&z=14&amp;output=embed`}
-                ></iframe>
-              </div>
+              <MapContainer center={[locationPageData?.lt, locationPageData?.ln]} zoom={13} scrollWheelZoom={false}>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={[locationPageData?.lt, locationPageData?.ln]}></Marker>
+              </MapContainer>
             </div>
           </div>
         </div>
