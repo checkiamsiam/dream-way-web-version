@@ -1,15 +1,12 @@
 import parse from "html-react-parser";
 import { useSession } from "next-auth/react";
-// import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAddToCartMutation } from "../../../features/property/propertyApi";
 import { setPropertyTarget } from "../../../features/property/propertySlice";
 import PropertyDetails from "../../common/PropertyDetails";
-// const FlatLocationMap = dynamic(() => import("./flatLocationMap"), {
-//     ssr: false,
-//   });
+
 
 function DetailContent({ flat, flatLocation }) {
   const router = useRouter();
@@ -66,7 +63,6 @@ function DetailContent({ flat, flatLocation }) {
             <h4 className="mb15">Property Details</h4>
           </div>
           <PropertyDetails propertyDetail={flat} />
-          {/* <FlatLocationMap /> */}
           <div className="gmap_canvas pe-none">{parse(flatLocation)}</div>
         </div>
       </div>

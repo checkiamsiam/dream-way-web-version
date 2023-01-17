@@ -1,7 +1,10 @@
-"use client";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 import { useSelector } from "react-redux";
+import dynamic from "next/dynamic";
 import Seo from "../components/common/seo";
+const LocationMap = dynamic(() => import("../components/common/locationMap"), {
+  ssr: false,
+});
 
 function PropertyLocation() {
   const { locationPageData } = useSelector((state) => state.property);
@@ -19,13 +22,7 @@ function PropertyLocation() {
 
           <div className="col-lg-12">
             <div className="h600" id="map-canvas">
-              <MapContainer center={[locationPageData?.lt, locationPageData?.ln]} zoom={13} scrollWheelZoom={false}>
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[locationPageData?.lt, locationPageData?.ln]}></Marker>
-              </MapContainer>
+              <LocationMap position={[locationPageData?.lt, locationPageData?.ln]} />
             </div>
           </div>
         </div>
