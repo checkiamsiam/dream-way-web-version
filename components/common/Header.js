@@ -30,6 +30,7 @@ const Header = () => {
         route.pathname === "/register" ||
         route.pathname === "/notice-board" ||
         route.pathname === "/email-verification" ||
+        route.pathname === "/property-location" ||
         route.pathname === "/customer-information" ||
         route.pathname === "/my-property" ||
         route.pathname === "/wishlist" ||
