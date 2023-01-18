@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 import Seo from "../components/common/seo";
 
 function PropertyLocation() {
@@ -18,7 +18,7 @@ function PropertyLocation() {
 
           <div className="col-lg-12">
             <div className="h600" id="map-canvas">
-              <div className="gmap_canvas pe-none">{parse(locationPageData?.iframeLocation)}</div>
+              <div className="gmap_canvas pe-none"><iframe title="map" className="gmap_iframe" src="https://maps.google.com/maps?q=23.8110257,90.4138067&hl=es&z=14&amp;output=embed" ></iframe></div>
             </div>
           </div>
         </div>
