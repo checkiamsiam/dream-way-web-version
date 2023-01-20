@@ -15,7 +15,7 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const dispatch = useDispatch();
-  const { data: cameras } = useGetCameraRollQuery({ id: property?.id || property?.flatId, token: session?.user?.token?.token });
+  const { data: cameras , isSuccess } = useGetCameraRollQuery({ id: property?.id || property?.flatId, token: session?.user?.token?.token });
   const handleOpenDocumentsModal = () => {
     dispatch(setInstallmentProperty(property));
     setVisibleDocuments(true);
@@ -62,8 +62,8 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
             </a>
           </div>
           <ul className="d-flex justify-content-center gap-2">
-            {cameras.status === 1 &&
-              cameras.response.map((data, i) => (
+            {isSuccess &&
+              cameras?.response?.map((data, i) => (
                 <li key={i} class="list-inline-item position-relative">
                   <a href={data?.url} rel="noreferrer" target="_blank">
                     <GoDeviceCamera style={{ color: "#FF5A5F", fontSize: "20px" }} />
