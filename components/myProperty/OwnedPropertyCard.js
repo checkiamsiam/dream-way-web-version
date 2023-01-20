@@ -15,7 +15,7 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const dispatch = useDispatch();
-  const { data: cameras , isSuccess } = useGetCameraRollQuery({ id: property?.id || property?.flatId, token: session?.user?.token?.token });
+  const { data: cameras, isSuccess } = useGetCameraRollQuery({ id: property?.id || property?.flatId, token: session?.user?.token?.token });
   const handleOpenDocumentsModal = () => {
     dispatch(setInstallmentProperty(property));
     setVisibleDocuments(true);
@@ -25,15 +25,9 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
     setVisibleModal(true);
   };
   const handleOpenLocationMap = () => {
-    dispatch(
-      setLocationPageData({
-        propertyName: property?.property?.title,
-        iframeLocation: `https://maps.google.com/maps?q=${property?.property?.lt},${property?.property?.ln}&hl=es&z=14&amp;output=embed`,
-      })
-    );
-    router.push("/property-location");
+    const url = `/property-location/${property?.property?.title}/${property?.property?.lt},${property?.property?.ln}`;
+    router.push(url);
   };
-
   console.log(cameras);
   return (
     <div>
