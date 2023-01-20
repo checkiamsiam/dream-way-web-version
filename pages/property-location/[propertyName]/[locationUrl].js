@@ -4,7 +4,8 @@ import Seo from "../../../components/common/seo";
 function PropertyLocationMap() {
   const router = useRouter();
   const { propertyName, locationUrl } = router.query;
-  const iframeUrl = `https://maps.google.com/maps?q=${locationUrl}&hl=es&z=14&amp;output=embed`;
+  const iframeUrl = `https://maps.google.com/maps?q=${locationUrl}&hl=es&z=14&amp&output=embed`;
+  console.log(iframeUrl);
   return (
     <>
       <Seo pageTitle="Property Location" />
@@ -18,9 +19,7 @@ function PropertyLocationMap() {
           </div>
           <div className="col-lg-12">
             <div className="h600" id="map-canvas">
-              <div className="gmap_canvas pe-none">
-                <iframe title="map" className="gmap_iframe" src={iframeUrl}></iframe>
-              </div>
+              <div className="gmap_canvas pe-none">{locationUrl && <iframe title="map" className="gmap_iframe" src={iframeUrl}></iframe>}</div>
             </div>
           </div>
         </div>
