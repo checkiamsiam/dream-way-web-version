@@ -28,11 +28,7 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
     dispatch(
       setLocationPageData({
         propertyName: property?.property?.title,
-        iframeLocation: `<iframe
-        title="map"
-        className="gmap_iframe"
-        src="https://maps.google.com/maps?q=${property?.property?.lt},${property?.property?.ln}&hl=es&z=14&amp;output=embed"
-      ></iframe>`,
+        iframeLocation: `https://maps.google.com/maps?q=${property?.property?.lt},${property?.property?.ln}&hl=es&z=14&amp;output=embed`,
       })
     );
     router.push("/property-location");
@@ -66,14 +62,15 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
             </a>
           </div>
           <ul className="d-flex justify-content-center gap-2">
-            {[4, 4, 6, 0].map((data, i) => (
-              <li key={i} class="list-inline-item position-relative">
-                <a href="#" target="_blank">
-                  <GoDeviceCamera style={{ color: "#FF5A5F", fontSize: "20px" }} />
-                  <span class="position-absolute top-0 start-100 translate-middle badge p-1 bg-danger">{i + 1}</span>
-                </a>
-              </li>
-            ))}
+            {cameras.status === 1 &&
+              cameras.response.map((data, i) => (
+                <li key={i} class="list-inline-item position-relative">
+                  <a href={data?.url} rel="noreferrer" target="_blank">
+                    <GoDeviceCamera style={{ color: "#FF5A5F", fontSize: "20px" }} />
+                    <span class="position-absolute top-0 start-100 translate-middle badge p-1 bg-danger">{i + 1}</span>
+                  </a>
+                </li>
+              ))}
           </ul>
         </div>
         {/* End details */}
