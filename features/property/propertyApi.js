@@ -12,6 +12,15 @@ export const propertyApi = api.injectEndpoints({
         },
       }),
     }),
+    getCameraRoll: builder.query({
+      query: (credentials) => ({
+        url: `/api/clients/cameras/${credentials.id}`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${credentials.token}`,
+        },
+      }),
+    }),
     removeFromCart: builder.mutation({
       query: (credentials) => ({
         url: `/api/order/cart/${credentials.id}`,
@@ -34,4 +43,4 @@ export const propertyApi = api.injectEndpoints({
   }),
 });
 
-export const { useAddToCartMutation, usePlaceOrderMutation, useRemoveFromCartMutation } = propertyApi;
+export const { useAddToCartMutation, usePlaceOrderMutation, useRemoveFromCartMutation, useGetCameraRollQuery } = propertyApi;

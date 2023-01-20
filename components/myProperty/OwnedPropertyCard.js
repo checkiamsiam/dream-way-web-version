@@ -8,9 +8,14 @@ import { useDispatch } from "react-redux";
 import { setInstallmentProperty, setLocationPageData } from "../../features/property/propertySlice";
 import { convertStringToArray } from "../common/utilityFunctions";
 import { useRouter } from "next/router";
+import { useGetCameraRollQuery } from "../../features/property/propertyApi";
+import { useSession } from "next-auth/react";
+
 function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const dispatch = useDispatch();
+  const { data: cameras } = useGetCameraRollQuery({ id: property?.id || property?.flatId, token: session?.user?.token?.token });
   const handleOpenDocumentsModal = () => {
     dispatch(setInstallmentProperty(property));
     setVisibleDocuments(true);
@@ -32,6 +37,8 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
     );
     router.push("/property-location");
   };
+
+  console.log(cameras);
   return (
     <div>
       <div className="feat_property list favorite_page">
@@ -59,17 +66,13 @@ function OwnedPropertyCard({ property, setVisibleModal, setVisibleDocuments }) {
             </a>
           </div>
           <ul className="d-flex justify-content-center gap-2">
-            
             {[4, 4, 6, 0].map((data, i) => (
               <li key={i} class="list-inline-item position-relative">
-              <a href="#">
-                <GoDeviceCamera style={{ color: "#FF5A5F" , fontSize: "20px" }} />
-              <span class="position-absolute top-0 start-100 translate-middle badge p-1 bg-danger">
-                {i+1}
-              </span>
-              </a>
-            </li>
-              
+                <a href="#" target="_blank">
+                  <GoDeviceCamera style={{ color: "#FF5A5F", fontSize: "20px" }} />
+                  <span class="position-absolute top-0 start-100 translate-middle badge p-1 bg-danger">{i + 1}</span>
+                </a>
+              </li>
             ))}
           </ul>
         </div>
